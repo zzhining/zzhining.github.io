@@ -82,38 +82,8 @@ me = HappyZhining()
   <section id="posts" class="posts-section">
     <div class="container">
       <h2 class="section-title">최근 글</h2>
-      <div class="posts-grid">
-
-        <article class="post-card featured">
-          <div class="post-tag">생성형 AI</div>
-          <h3><a href="posts/generative-ai-intro.html">생성형 AI, 어떻게 가르칠까?</a></h3>
-          <p>강의 현장에서 느낀 생성형 AI 교육의 어려움과 효과적인 접근법을 공유합니다. 비전공자도 이해할 수 있는 커리큘럼 설계 방법론을 소개합니다.</p>
-          <div class="post-meta">
-            <span>2025년 3월 15일</span>
-            <a href="posts/generative-ai-intro.html" class="read-more">읽기 →</a>
-          </div>
-        </article>
-
-        <article class="post-card">
-          <div class="post-tag">머신러닝</div>
-          <h3><a href="posts/ml-for-beginners.html">비전공자도 쉽게 이해하는 머신러닝</a></h3>
-          <p>복잡한 수식 없이 머신러닝의 핵심 개념을 이해하는 방법을 소개합니다. 실무에서 바로 써먹는 직관적인 설명 위주로 구성했습니다.</p>
-          <div class="post-meta">
-            <span>2025년 2월 20일</span>
-            <a href="posts/ml-for-beginners.html" class="read-more">읽기 →</a>
-          </div>
-        </article>
-
-        <article class="post-card">
-          <div class="post-tag">데이터 분석</div>
-          <h3><a href="posts/data-analysis-tools.html">2025년 데이터 분석 도구 비교 가이드</a></h3>
-          <p>Python, R, 노코드 도구들을 실무와 교육 현장의 관점에서 비교합니다. 상황에 맞는 최적의 도구를 선택하는 기준을 제시합니다.</p>
-          <div class="post-meta">
-            <span>2025년 1월 10일</span>
-            <a href="posts/data-analysis-tools.html" class="read-more">읽기 →</a>
-          </div>
-        </article>
-
+      <div id="featured-posts-grid" class="posts-grid">
+        <!-- dynamically rendered -->
       </div>
 
       <div style="text-align:center; margin-top:40px;">
@@ -153,5 +123,39 @@ me = HappyZhining()
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script>
+    function formatDateKo(str) {
+      const [y, m, d] = str.split('-');
+      return `${y}년 ${parseInt(m)}월 ${parseInt(d)}일`;
+    }
+
+    async function loadFeaturedPosts() {
+      const grid = document.getElementById('featured-posts-grid');
+      try {
+        const res = await fetch('posts/index.json');
+        if (!res.ok) throw new Error('fetch failed');
+        const posts = await res.json();
+
+        // Show up to 3 most recent posts (first in list = most recent)
+        const featured = posts.slice(0, 3);
+
+        grid.innerHTML = featured.map((post, i) => `
+          <article class="post-card${i === 0 ? ' featured' : ''}">
+            <div class="post-tag">${post.categoryLabel}</div>
+            <h3><a href="post.html?id=${post.id}">${post.title}</a></h3>
+            <p>${post.description}</p>
+            <div class="post-meta">
+              <span>${formatDateKo(post.date)}</span>
+              <a href="post.html?id=${post.id}" class="read-more">읽기 →</a>
+            </div>
+          </article>
+        `).join('');
+      } catch (e) {
+        grid.innerHTML = '<p style="color:var(--text-secondary);">글을 불러올 수 없습니다.</p>';
+      }
+    }
+
+    loadFeaturedPosts();
+  </script>
 </body>
 </html>
