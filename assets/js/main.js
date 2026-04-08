@@ -72,8 +72,6 @@ window.addEventListener('scroll', () => {
   progressBar.style.width = docHeight > 0 ? `${(scrollTop / docHeight) * 100}%` : '0%';
 }, { passive: true });
 
-// Post filter is initialized dynamically in posts.html after posts load
-
 // ===========================
 // Accordion (about.html)
 // ===========================
@@ -91,22 +89,3 @@ document.querySelectorAll('.accordion-header').forEach(header => {
     }
   });
 });
-
-// ===========================
-// TOC Active Highlight (post pages)
-// ===========================
-const tocLinks = document.querySelectorAll('.toc a');
-if (tocLinks.length) {
-  const headings = document.querySelectorAll('.post-body h2, .post-body h3');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        tocLinks.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-        });
-      }
-    });
-  }, { rootMargin: '-20% 0px -70% 0px' });
-  headings.forEach(h => { if (h.id) observer.observe(h); });
-}
