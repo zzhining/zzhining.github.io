@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="해피쯔닝 블로그 - AI/데이터 사이언스 교육자의 기술 블로그">
+  <title>해피쯔닝 블로그</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">해피쯔닝 ✨</a>
+      <ul class="nav-links">
+        <li><a href="index.html">홈</a></li>
+        <li><a href="posts.html">글 목록</a></li>
+        <li><a href="about.html">소개</a></li>
+      </ul>
+      <button id="themeToggle" class="theme-toggle" aria-label="다크 모드로 변경">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">☰</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">AI &amp; 데이터 사이언스 교육자</div>
+        <h1>안녕하세요,<br>해피쯔닝입니다 👋</h1>
+        <p>AI/ML 교육과 데이터 분석을 가르치며,<br>배우고 나누는 즐거움을 블로그로 공유합니다.</p>
+        <div class="hero-cta">
+          <a href="#posts" class="btn btn-primary">최신 글 보기</a>
+          <a href="about.html" class="btn btn-secondary">소개 보기</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">200+</span>
+            <span class="stat-label">강의 시간</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">4권</span>
+            <span class="stat-label">저서</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">컨설팅 기관</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="code-card">
+          <div class="code-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="code-title">happy_zhining.py</span>
+          </div>
+          <pre class="code-body"><code><span class="kw">class</span> <span class="cls">HappyZhining</span>:
+    role = <span class="str">"AI 교육자"</span>
+    passion = [
+        <span class="str">"머신러닝"</span>,
+        <span class="str">"데이터 분석"</span>,
+        <span class="str">"지식 나눔"</span>,
+    ]
+
+    <span class="fn">def</span> <span class="fn">teach</span>(<span class="kw">self</span>):
+        <span class="kw">return</span> <span class="str">"배움을 즐겁게 🚀"</span>
+
+me = HappyZhining()
+<span class="fn">print</span>(me.teach())</code></pre>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Latest Posts -->
+  <section id="posts" class="posts-section">
+    <div class="container">
+      <h2 class="section-title">최근 글</h2>
+      <div class="posts-grid">
+
+        <article class="post-card featured">
+          <div class="post-tag">생성형 AI</div>
+          <h3><a href="posts/generative-ai-intro.html">생성형 AI, 어떻게 가르칠까?</a></h3>
+          <p>강의 현장에서 느낀 생성형 AI 교육의 어려움과 효과적인 접근법을 공유합니다. 비전공자도 이해할 수 있는 커리큘럼 설계 방법론을 소개합니다.</p>
+          <div class="post-meta">
+            <span>2025년 3월 15일</span>
+            <a href="posts/generative-ai-intro.html" class="read-more">읽기 →</a>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-tag">머신러닝</div>
+          <h3><a href="posts/ml-for-beginners.html">비전공자도 쉽게 이해하는 머신러닝</a></h3>
+          <p>복잡한 수식 없이 머신러닝의 핵심 개념을 이해하는 방법을 소개합니다. 실무에서 바로 써먹는 직관적인 설명 위주로 구성했습니다.</p>
+          <div class="post-meta">
+            <span>2025년 2월 20일</span>
+            <a href="posts/ml-for-beginners.html" class="read-more">읽기 →</a>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-tag">데이터 분석</div>
+          <h3><a href="posts/data-analysis-tools.html">2025년 데이터 분석 도구 비교 가이드</a></h3>
+          <p>Python, R, 노코드 도구들을 실무와 교육 현장의 관점에서 비교합니다. 상황에 맞는 최적의 도구를 선택하는 기준을 제시합니다.</p>
+          <div class="post-meta">
+            <span>2025년 1월 10일</span>
+            <a href="posts/data-analysis-tools.html" class="read-more">읽기 →</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div style="text-align:center; margin-top:40px;">
+        <a href="posts.html" class="btn btn-secondary">모든 글 보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="skills-section">
+    <div class="container">
+      <h2 class="section-title">기술 스택</h2>
+      <div class="skills-grid">
+        <span class="skill-item">Python</span>
+        <span class="skill-item">R</span>
+        <span class="skill-item">SQL</span>
+        <span class="skill-item">TensorFlow</span>
+        <span class="skill-item">PyTorch</span>
+        <span class="skill-item">Scikit-learn</span>
+        <span class="skill-item">Keras</span>
+        <span class="skill-item">Pandas</span>
+        <span class="skill-item">NumPy</span>
+        <span class="skill-item">Streamlit</span>
+        <span class="skill-item">Django</span>
+        <span class="skill-item">Flask</span>
+        <span class="skill-item">MySQL</span>
+        <span class="skill-item">MongoDB</span>
+        <span class="skill-item">BigZami</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 해피쯔닝 · <a href="mailto:zhining@naver.com">zhining@naver.com</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

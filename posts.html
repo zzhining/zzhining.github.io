@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="해피쯔닝 블로그 - 모든 글 목록">
+  <title>글 목록 - 해피쯔닝 블로그</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">해피쯔닝 ✨</a>
+      <ul class="nav-links">
+        <li><a href="index.html">홈</a></li>
+        <li><a href="posts.html">글 목록</a></li>
+        <li><a href="about.html">소개</a></li>
+      </ul>
+      <button id="themeToggle" class="theme-toggle" aria-label="다크 모드로 변경">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">☰</button>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>글 목록</h1>
+      <p>AI, 머신러닝, 데이터 분석에 관한 이야기를 나눕니다.</p>
+    </div>
+  </header>
+
+  <main class="posts-page">
+    <div class="container">
+
+      <!-- Category Filter -->
+      <div class="posts-filter">
+        <button class="filter-btn active" data-filter="all">전체</button>
+        <button class="filter-btn" data-filter="genai">생성형 AI</button>
+        <button class="filter-btn" data-filter="ml">머신러닝</button>
+        <button class="filter-btn" data-filter="data">데이터 분석</button>
+        <button class="filter-btn" data-filter="edu">교육</button>
+      </div>
+
+      <!-- Posts List -->
+      <div class="all-posts-grid">
+
+        <article class="post-list-item" data-category="genai">
+          <div class="post-list-content">
+            <div class="post-tag" style="margin-bottom:8px;">생성형 AI</div>
+            <h3><a href="posts/generative-ai-intro.html">생성형 AI, 어떻게 가르칠까?</a></h3>
+            <p>강의 현장에서 느낀 생성형 AI 교육의 어려움과 효과적인 접근법을 공유합니다.</p>
+          </div>
+          <div class="post-list-meta">
+            <span style="font-size:0.85rem;color:var(--text-secondary);">2025.03.15</span>
+            <a href="posts/generative-ai-intro.html" class="read-more" style="font-size:0.875rem;">읽기 →</a>
+          </div>
+        </article>
+
+        <article class="post-list-item" data-category="ml">
+          <div class="post-list-content">
+            <div class="post-tag" style="margin-bottom:8px;">머신러닝</div>
+            <h3><a href="posts/ml-for-beginners.html">비전공자도 쉽게 이해하는 머신러닝</a></h3>
+            <p>복잡한 수식 없이 머신러닝의 핵심 개념을 직관적으로 설명합니다.</p>
+          </div>
+          <div class="post-list-meta">
+            <span style="font-size:0.85rem;color:var(--text-secondary);">2025.02.20</span>
+            <a href="posts/ml-for-beginners.html" class="read-more" style="font-size:0.875rem;">읽기 →</a>
+          </div>
+        </article>
+
+        <article class="post-list-item" data-category="data">
+          <div class="post-list-content">
+            <div class="post-tag" style="margin-bottom:8px;">데이터 분석</div>
+            <h3><a href="posts/data-analysis-tools.html">2025년 데이터 분석 도구 비교 가이드</a></h3>
+            <p>Python, R, 노코드 도구를 실무 관점에서 비교하고 상황별 추천을 제시합니다.</p>
+          </div>
+          <div class="post-list-meta">
+            <span style="font-size:0.85rem;color:var(--text-secondary);">2025.01.10</span>
+            <a href="posts/data-analysis-tools.html" class="read-more" style="font-size:0.875rem;">읽기 →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 해피쯔닝 · <a href="mailto:zhining@naver.com">zhining@naver.com</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
