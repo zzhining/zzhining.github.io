@@ -44,58 +44,11 @@
         <button class="filter-btn" data-filter="edu">교육</button>
       </div>
 
-      <!-- Posts List -->
-      <div class="all-posts-grid">
-
-        <article class="post-list-item" data-category="genai">
-          <div class="post-list-content">
-            <div class="post-tag" style="margin-bottom:8px;">생성형 AI</div>
-            <h3><a href="posts/ai-question-method.html">AI한테 '잘 부탁해'만 하면 안 되는 이유 — 초등학생에게 배운 질문의 힘</a></h3>
-            <p>다음 달 도서관 AI 강의를 준비하며 깨달은 것. 좋은 AI 활용자와 그냥 쓰는 사람의 차이는 '질문'에 있다.</p>
-          </div>
-          <div class="post-list-meta">
-            <span style="font-size:0.85rem;color:var(--text-secondary);">2026.04.08</span>
-            <a href="posts/ai-question-method.html" class="read-more" style="font-size:0.875rem;">읽기 →</a>
-          </div>
-        </article>
-
-        <article class="post-list-item" data-category="genai">
-          <div class="post-list-content">
-            <div class="post-tag" style="margin-bottom:8px;">생성형 AI</div>
-            <h3><a href="posts/generative-ai-intro.html">생성형 AI, 어떻게 가르칠까?</a></h3>
-            <p>강의 현장에서 느낀 생성형 AI 교육의 어려움과 효과적인 접근법을 공유합니다.</p>
-          </div>
-          <div class="post-list-meta">
-            <span style="font-size:0.85rem;color:var(--text-secondary);">2025.03.15</span>
-            <a href="posts/generative-ai-intro.html" class="read-more" style="font-size:0.875rem;">읽기 →</a>
-          </div>
-        </article>
-
-        <article class="post-list-item" data-category="ml">
-          <div class="post-list-content">
-            <div class="post-tag" style="margin-bottom:8px;">머신러닝</div>
-            <h3><a href="posts/ml-for-beginners.html">비전공자도 쉽게 이해하는 머신러닝</a></h3>
-            <p>복잡한 수식 없이 머신러닝의 핵심 개념을 직관적으로 설명합니다.</p>
-          </div>
-          <div class="post-list-meta">
-            <span style="font-size:0.85rem;color:var(--text-secondary);">2025.02.20</span>
-            <a href="posts/ml-for-beginners.html" class="read-more" style="font-size:0.875rem;">읽기 →</a>
-          </div>
-        </article>
-
-        <article class="post-list-item" data-category="data">
-          <div class="post-list-content">
-            <div class="post-tag" style="margin-bottom:8px;">데이터 분석</div>
-            <h3><a href="posts/data-analysis-tools.html">2025년 데이터 분석 도구 비교 가이드</a></h3>
-            <p>Python, R, 노코드 도구를 실무 관점에서 비교하고 상황별 추천을 제시합니다.</p>
-          </div>
-          <div class="post-list-meta">
-            <span style="font-size:0.85rem;color:var(--text-secondary);">2025.01.10</span>
-            <a href="posts/data-analysis-tools.html" class="read-more" style="font-size:0.875rem;">읽기 →</a>
-          </div>
-        </article>
-
+      <!-- Posts List (dynamically rendered) -->
+      <div id="all-posts-grid" class="all-posts-grid">
+        <p style="color:var(--text-secondary);text-align:center;padding:40px 0;">글을 불러오는 중...</p>
       </div>
+
     </div>
   </main>
 
@@ -106,5 +59,60 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script>
+    function formatDate(str) {
+      return str.replace(/-/g, '.');
+    }
+
+    async function loadPosts() {
+      const grid = document.getElementById('all-posts-grid');
+      try {
+        const res = await fetch('posts/index.json');
+        if (!res.ok) throw new Error('fetch failed');
+        const posts = await res.json();
+
+        if (posts.length === 0) {
+          grid.innerHTML = '<p style="color:var(--text-secondary);text-align:center;padding:40px 0;">아직 작성된 글이 없습니다.</p>';
+          return;
+        }
+
+        grid.innerHTML = posts.map(post => `
+          <article class="post-list-item" data-category="${post.category}">
+            <div class="post-list-content">
+              <div class="post-tag" style="margin-bottom:8px;">${post.categoryLabel}</div>
+              <h3><a href="post.html?id=${post.id}">${post.title}</a></h3>
+              <p>${post.description}</p>
+            </div>
+            <div class="post-list-meta">
+              <span style="font-size:0.85rem;color:var(--text-secondary);">${formatDate(post.date)}</span>
+              <a href="post.html?id=${post.id}" class="read-more" style="font-size:0.875rem;">읽기 →</a>
+            </div>
+          </article>
+        `).join('');
+
+        // Re-apply filter after rendering
+        initFilter();
+      } catch (e) {
+        grid.innerHTML = '<p style="color:var(--text-secondary);text-align:center;padding:40px 0;">글 목록을 불러올 수 없습니다.</p>';
+      }
+    }
+
+    function initFilter() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const postItems = document.querySelectorAll('.post-list-item');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          postItems.forEach(item => {
+            item.style.display = (filter === 'all' || item.dataset.category === filter) ? '' : 'none';
+          });
+        });
+      });
+    }
+
+    loadPosts();
+  </script>
 </body>
 </html>

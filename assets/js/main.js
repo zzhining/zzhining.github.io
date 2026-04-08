@@ -72,24 +72,7 @@ window.addEventListener('scroll', () => {
   progressBar.style.width = docHeight > 0 ? `${(scrollTop / docHeight) * 100}%` : '0%';
 }, { passive: true });
 
-// ===========================
-// Post Filter (posts.html)
-// ===========================
-const filterBtns = document.querySelectorAll('.filter-btn');
-const postItems = document.querySelectorAll('.post-list-item');
-
-if (filterBtns.length && postItems.length) {
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      postItems.forEach(item => {
-        item.style.display = (filter === 'all' || item.dataset.category === filter) ? '' : 'none';
-      });
-    });
-  });
-}
+// Post filter is initialized dynamically in posts.html after posts load
 
 // ===========================
 // Accordion (about.html)
