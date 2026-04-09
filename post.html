@@ -156,18 +156,16 @@
     function buildPostNav(allPosts, currentId) {
       const idx = allPosts.findIndex(p => p.id === currentId);
       const nav = document.getElementById('post-nav');
-      let html = '';
 
-      if (idx > 0) {
-        const prev = allPosts[idx - 1];
-        html += `<a href="post.html?id=${prev.id}" class="post-nav-prev">← ${prev.title}</a>`;
-      }
-      if (idx < allPosts.length - 1) {
-        const next = allPosts[idx + 1];
-        html += `<a href="post.html?id=${next.id}" class="post-nav-next">${next.title} →</a>`;
-      }
+      const prevHtml = idx > 0
+        ? `<a href="post.html?id=${allPosts[idx-1].id}"><small>이전 글</small>← ${allPosts[idx-1].title}</a>`
+        : '<span></span>';
 
-      nav.innerHTML = html;
+      const nextHtml = idx !== -1 && idx < allPosts.length - 1
+        ? `<a href="post.html?id=${allPosts[idx+1].id}" class="next"><small>다음 글</small>${allPosts[idx+1].title} →</a>`
+        : '<span></span>';
+
+      nav.innerHTML = prevHtml + nextHtml;
     }
 
     // ===========================
@@ -216,9 +214,8 @@
         document.getElementById('post-read-time').textContent = data.readTime ? `⏱️ ${data.readTime}` : '';
 
         // Render markdown
-        marked.setOptions({ breaks: true, gfm: true });
         const bodyEl = document.getElementById('post-body');
-        bodyEl.innerHTML = marked.parse(content);
+        bodyEl.innerHTML = marked.parse(content, { breaks: true });
 
         // Build sidebar and navigation
         buildToc(bodyEl);
