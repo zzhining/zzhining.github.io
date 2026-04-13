@@ -1,0 +1,21 @@
+---
+layout: page
+title: Blog
+permalink: /blog/
+---
+
+<h1>Blog</h1>
+
+{% if site.posts.size > 0 %}
+<ul class="post-list">
+  {% for post in site.posts %}
+  <li>
+    <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <div class="post-date">{{ post.date | date: "%Y-%m-%d" }}</div>
+    {% if post.description %}<p class="post-desc">{{ post.description }}</p>{% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>아직 게시물이 없습니다.</p>
+{% endif %}
