@@ -2,6 +2,7 @@ title: zzhining
 description: Personal blog
 url: "https://zzhining.github.io"
 baseurl: ""
+timezone: Asia/Seoul
 
 markdown: kramdown
 highlighter: rouge
