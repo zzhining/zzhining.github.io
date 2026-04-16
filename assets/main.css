@@ -255,3 +255,15 @@ footer {
   color: #666;
   margin-top: 2rem;
 }
+
+/* 본문이 메뉴바를 침범하는 문제 수정 */
+.site-header {
+  position: sticky !important; /* 상단 고정 강제 적용 */
+  top: 0;                      /* 최상단에 위치 */
+  z-index: 100;                /* 본문보다 위에 오도록 레이어 순서 지정 */
+  background-color: #ffffff;   /* 배경을 불투명하게 설정 (필요 시 테마 색상으로 변경) */
+}
+
+.site-nav {
+  z-index: 101;                /* 메뉴 버튼이 더 위에 오도록 설정 */
+}
