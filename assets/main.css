@@ -267,3 +267,26 @@ footer {
 .site-nav {
   z-index: 101;                /* 메뉴 버튼이 더 위에 오도록 설정 */
 }
+
+
+/* 1. 메뉴바(헤더)를 최상단 레이어로 강제 고정 */
+.site-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;   /* 아주 높은 숫자로 설정 */
+  background-color: white !important; /* 배경색이 투명하면 글자가 겹쳐 보임 */
+  border-bottom: 1px solid #e8e8e8; /* 메뉴와 본문 구분선 */
+}
+
+/* 2. 블로그 상세 페이지의 본문 컨테이너 레이어 낮추기 */
+.post-content, 
+.wrapper, 
+article {
+  position: relative !important;
+  z-index: 1 !important;    /* 메뉴바(1000)보다 훨씬 낮은 숫자로 설정 */
+}
+
+/* 3. 메뉴바 내부의 내비게이션 항목도 위로 올림 */
+.site-nav {
+  z-index: 1001 !important;
+}
