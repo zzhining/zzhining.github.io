@@ -256,22 +256,33 @@ footer {
   margin-top: 2rem;
 }
 
-
-/* 1. 상단 헤더(메뉴바) 영역을 최상단으로 올리기 */
-.site-header {
+/* 1. 헤더(메뉴바) 전체 설정 */
+header {
   position: sticky !important;
   top: 0 !important;
-  z-index: 1000 !important;   /* 본문보다 확실히 높게 설정 */
-  background-color: #ffffff !important; /* 배경색을 채워야 뒤의 글자가 안 보입니다 */
+  width: 100%;
+  z-index: 10000 !important; /* 확장 프로그램보다 높은 우선순위 부여 */
+  background-color: #ffffff !important; /* 배경색이 없으면 본문 글자가 겹쳐 보임 */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 본문과 구분되도록 그림자 추가 */
 }
 
-/* 2. 본문 메인 영역의 레이어 순위 낮추기 */
+/* 2. 내비게이션 바 설정 */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff !important;
+}
+
+/* 3. 본문 영역 설정 */
 main {
   position: relative !important;
-  z-index: 1 !important;      /* 헤더(1000)보다 낮은 숫자로 설정 */
+  z-index: 1 !important; /* 헤더보다 아래에 위치하도록 설정 */
+  background-color: #ffffff; /* 본문 배경 설정 */
 }
 
-/* 3. 모바일 등에서 메뉴 버튼이 눌리지 않는 현상 방지 */
-.site-nav {
-  z-index: 1001 !important;
+/* 4. 드롭다운 메뉴가 잘리지 않도록 설정 */
+.dropdown-menu {
+  z-index: 10001 !important;
+  background-color: #ffffff !important;
 }
