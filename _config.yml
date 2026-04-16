@@ -10,6 +10,26 @@ permalink: /blog/:year/:month/:day/:title/
 plugins:
   - jekyll-feed
 
+collections:
+  lectures_genai:
+    output: true
+    permalink: /lectures/genai/:name/
+  lectures_data:
+    output: true
+    permalink: /lectures/data/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: lectures_genai
+    values:
+      layout: lecture
+  - scope:
+      path: ""
+      type: lectures_data
+    values:
+      layout: lecture
+
 exclude:
   - Gemfile
   - Gemfile.lock
