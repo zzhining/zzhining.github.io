@@ -1,0 +1,288 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #000;
+  background: #fff;
+}
+
+/* ── Navigation ── */
+header {
+  border-bottom: 2px solid #000;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 50;
+}
+
+nav {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.nav-brand a {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #000;
+  letter-spacing: 0.04em;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-menu > li > a {
+  display: block;
+  padding: 0.25rem 1rem;
+  text-decoration: none;
+  color: #000;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-menu > li > a:hover,
+.nav-menu > li > a.active {
+  border-bottom-color: #000;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown > a::after {
+  content: " ▾";
+  font-size: 0.7em;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  background: #fff;
+  border: 1px solid #000;
+  list-style: none;
+  min-width: 120px;
+  z-index: 100;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.55rem 1rem;
+  text-decoration: none;
+  color: #000;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-menu li:last-child a {
+  border-bottom: none;
+}
+
+.dropdown-menu li a:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ── Main Content ── */
+main {
+  max-width: 760px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  min-height: calc(100vh - 160px);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin: 2.5rem 0 1rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 2rem 0 0.75rem;
+}
+
+p {
+  margin-bottom: 1.2rem;
+}
+
+a {
+  color: #000;
+}
+
+ul, ol {
+  margin: 0.5rem 0 1.25rem 1.5rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 2rem 0;
+}
+
+code {
+  background: #f4f4f4;
+  padding: 0.15em 0.4em;
+  font-size: 0.88em;
+  border-radius: 3px;
+  font-family: 'SFMono-Regular', Consolas, monospace;
+}
+
+pre {
+  background: #f4f4f4;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid #000;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+blockquote {
+  border-left: 3px solid #000;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: #555;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ── Blog Post List ── */
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-list li {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.post-list li:first-child {
+  padding-top: 0;
+}
+
+.post-list li:last-child {
+  border-bottom: none;
+}
+
+.post-list .post-title {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #000;
+  margin-bottom: 0.25rem;
+}
+
+.post-list .post-title:hover {
+  text-decoration: underline;
+}
+
+.post-list .post-date {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.post-list .post-desc {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+/* ── Post ── */
+.post-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #000;
+}
+
+.post-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid #000;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 2rem;
+}
+
+/* 1. 헤더(메뉴바) 전체 설정 */
+header {
+  position: sticky !important;
+  top: 0 !important;
+  width: 100%;
+  z-index: 10000 !important; /* 확장 프로그램보다 높은 우선순위 부여 */
+  background-color: #ffffff !important; /* 배경색이 없으면 본문 글자가 겹쳐 보임 */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 본문과 구분되도록 그림자 추가 */
+}
+
+/* 2. 내비게이션 바 설정 */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff !important;
+}
+
+/* 3. 본문 영역 설정 */
+main {
+  position: relative !important;
+  z-index: 1 !important; /* 헤더보다 아래에 위치하도록 설정 */
+  background-color: #ffffff; /* 본문 배경 설정 */
+}
+
+/* 4. 드롭다운 메뉴가 잘리지 않도록 설정 */
+.dropdown-menu {
+  z-index: 10001 !important;
+  background-color: #ffffff !important;
+}

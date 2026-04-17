@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-brand"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></div>
+      <ul class="nav-menu">
+        <li><a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %}>Home</a></li>
+        <li><a href="{{ '/profile/' | relative_url }}"{% if page.url contains '/profile' %} class="active"{% endif %}>Profile</a></li>
+        <li class="dropdown">
+          <a href="{{ '/lectures/' | relative_url }}"{% if page.url contains '/lectures' %} class="active"{% endif %}>Lectures</a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ '/lectures/genai/' | relative_url }}">GenAI</a></li>
+            <li><a href="{{ '/lectures/data/' | relative_url }}">Data</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ '/blog/' | relative_url }}"{% if page.url contains '/blog' %} class="active"{% endif %}>Blog</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer>
+    <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
+  </footer>
+</body>
+</html>
