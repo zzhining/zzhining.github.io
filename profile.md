@@ -105,7 +105,7 @@ AI·데이터 분석 분야의 강사이자 컨설턴트입니다.
 - **이메일**: [zhining@naver.com](mailto:zhining@naver.com)
 - **GitHub**: [zzhining](https://github.com/zzhining)
 - **유튜브**: [샘플강의](https://youtu.be/EdRp1g0Q4cg)
-
+- **문의**: [강의·컨설팅 문의](https://docs.google.com/forms/d/e/1FAIpQLSeoMQf4U5ZJ0DFzeq29Bi_RVrDeqrg8_3440LkkGbi_ihIykA/viewform?usp=sharing&ouid=108287339874311502567)
 
 
 

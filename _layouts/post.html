@@ -25,4 +25,31 @@ layout: default
   <div class="post-content">
     {{ content }}
   </div>
+
+  <div class="post-cta">
+    <p class="post-cta-text">AI 강의나 컨설팅이 필요하다면 문의를 남겨주세요.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeoMQf4U5ZJ0DFzeq29Bi_RVrDeqrg8_3440LkkGbi_ihIykA/viewform?usp=sharing&ouid=108287339874311502567" class="cta-button" target="_blank" rel="noopener">강의·컨설팅 문의하기 →</a>
+  </div>
+
+  {% assign current_url = page.url %}
+  {% assign current_cat = page.categories | first %}
+  {% assign related_posts = site.posts | where_exp: "p", "p.url != current_url" %}
+  {% assign cat_posts = related_posts | where_exp: "p", "p.categories contains current_cat" | limit: 3 %}
+  {% if cat_posts.size == 0 %}
+    {% assign cat_posts = related_posts | limit: 3 %}
+  {% endif %}
+
+  {% if cat_posts.size > 0 %}
+  <div class="related-posts">
+    <h3 class="related-posts-title">관련 글</h3>
+    <ul class="related-posts-list">
+      {% for p in cat_posts %}
+      <li>
+        <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+        <span class="post-date">{{ p.date | date: "%Y-%m-%d" }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
 </article>
