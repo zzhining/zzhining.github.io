@@ -605,3 +605,151 @@ main {
   color: #1e40af;
   margin: 0;
 }
+
+/* Lecture stats */
+.lecture-stats {
+  display: flex;
+  gap: 2rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e40af;
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 0.2rem;
+}
+
+/* Notion CTA banner */
+.notion-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.2rem 1.5rem;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #0f172a;
+  border-radius: 6px;
+  margin: 1.5rem 0;
+}
+
+.notion-cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.notion-cta-text strong {
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.notion-cta-text span {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* Topic grid */
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.topic-card {
+  padding: 1.2rem 1.2rem 1.4rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background-color: #f8fafc;
+}
+
+.topic-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.topic-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.4rem;
+}
+
+.topic-card p {
+  font-size: 0.82rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Org sections */
+.org-section {
+  margin-bottom: 1.2rem;
+}
+
+.org-section-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.6rem;
+}
+
+.org-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.org-tag {
+  display: inline-block;
+  background-color: #fff;
+  color: #1e40af;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid #bfdbfe;
+}
+
+/* Notion card in lecture-grid */
+.lecture-card-image-notion {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notion-card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.notion-card-icon {
+  font-size: 2.5rem;
+}
+
+.notion-card-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: 0.05em;
+}
