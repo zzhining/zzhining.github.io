@@ -10,6 +10,7 @@ permalink: /blog/:year/:month/:day/:title/
 
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 collections:
   lectures_genai:

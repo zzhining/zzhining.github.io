@@ -4,6 +4,7 @@ title: "AI는 나를 어떻게 생각할까? — Artificial Intelligence에서 A
 date: 2026-04-09
 categories: [AI활용, 자기계발]
 tags: [AI활용법, ChatGPT활용, 자아성찰, AuthenticIntelligence, 브랜드전략]
+description: "AI에게 "나를 어떤 사람으로 보고 있니?"라고 물었다. 인공지능을 거울 삼아 진짜 나를 발견하는 여정, Artificial Intelligence에서 Authentic Intelligence로."
 ---
 
 어느 날 밤, 나는 AI에게 이런 질문을 했다.
