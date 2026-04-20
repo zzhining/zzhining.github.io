@@ -14,7 +14,7 @@ tags: [AI활용법, ChatGPT활용, 자아성찰, AuthenticIntelligence, 브랜�
 
 잠시 후 화면에 이미지 하나가 떠올랐다. 나는 그 그림을 보는 순간, 멈칫했다. 내가 의도적으로 보여주려 했던 모습이 아니었다. AI는 내가 무심코 흘린 말들, 반복적으로 꺼낸 단어들, 질문의 패턴들을 조용히 모아서 내가 미처 보지 못했던 나를 돌려보내고 있었다.
 
-![나를 그린 AI 이미지](/assets/images/ChatGPT_Image.png)
+![나를 그린 AI 이미지](/assets/image/ChatGPT_Image.png)
 
 
 ---
