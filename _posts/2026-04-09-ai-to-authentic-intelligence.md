@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "AI는 나를 어떻게 생각할까? — Artificial Intelligence에서 Authentic Intelligence로"
-date: 2026-04-17
-description: "AI활용법, ChatGPT활용, 자아성찰, Authentic Intelligence, AI to AI, 브랜드전략"
+date: 2026-04-09
+categories: [AI활용, 자기계발]
+tags: [AI활용법, ChatGPT활용, 자아성찰, AuthenticIntelligence, 브랜드전략]
 ---
 
 어느 날 밤, 나는 AI에게 이런 질문을 했다.

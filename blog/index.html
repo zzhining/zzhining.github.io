@@ -11,8 +11,23 @@ permalink: /blog/
   {% for post in site.posts %}
   <li>
     <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    <div class="post-date">{{ post.date | date: "%Y-%m-%d" }}</div>
-    {% if post.description %}<p class="post-desc">{{ post.description }}</p>{% endif %}
+    <div class="post-meta">
+      <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      {% if post.categories and post.categories.size > 0 %}
+      <span class="post-categories">
+        {% for category in post.categories %}
+        <span class="category-tag">{{ category }}</span>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </div>
+    {% if post.tags and post.tags.size > 0 %}
+    <div class="post-tags">
+      {% for tag in post.tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
   </li>
   {% endfor %}
 </ul>
