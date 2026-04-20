@@ -329,3 +329,33 @@ main {
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #f1f5f9;
 }
+
+/* Tables */
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.92rem;
+}
+
+.post-content table th,
+.post-content table td {
+  border: 1px solid #cbd5e1;
+  padding: 0.55rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.post-content table th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.post-content table tr:nth-child(even) td {
+  background-color: #f8fafc;
+}
+
+.post-content table tr:hover td {
+  background-color: #f1f5f9;
+}
