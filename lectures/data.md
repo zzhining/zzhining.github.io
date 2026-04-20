@@ -9,15 +9,20 @@ permalink: /lectures/data/
 
 {% assign lectures = site.lectures_data | sort: "date" | reverse %}
 {% if lectures.size > 0 %}
-<ul class="post-list">
+<div class="lecture-grid">
   {% for lecture in lectures %}
-  <li>
-    <a class="post-title" href="{{ lecture.url | relative_url }}">{{ lecture.title }}</a>
-    {% if lecture.date %}<div class="post-date">{{ lecture.date | date: "%Y-%m-%d" }}</div>{% endif %}
-    {% if lecture.description %}<p class="post-desc">{{ lecture.description }}</p>{% endif %}
-  </li>
+  <a class="lecture-card" href="{{ lecture.url | relative_url }}">
+    <div class="lecture-card-image">
+      <img src="{% if lecture.image %}{{ lecture.image | relative_url }}{% else %}{{ '/assets/image/gemini_image.png' | relative_url }}{% endif %}" alt="{{ lecture.title }}">
+    </div>
+    <div class="lecture-card-body">
+      <h3 class="lecture-card-title">{{ lecture.title }}</h3>
+      {% if lecture.description %}<p class="lecture-card-desc">{{ lecture.description }}</p>{% endif %}
+      {% if lecture.date %}<span class="lecture-card-date">{{ lecture.date | date: "%Y-%m-%d" }}</span>{% endif %}
+    </div>
+  </a>
   {% endfor %}
-</ul>
+</div>
 {% else %}
 <p>아직 강의 자료가 없습니다.</p>
 {% endif %}

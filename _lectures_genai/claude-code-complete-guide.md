@@ -2,6 +2,7 @@
 title: "Claude Code 완벽 가이드"
 date: 2026-04-13
 description: "Claude Code의 핵심 기능과 실전 활용법 완벽 정리"
+image: /assets/image/gemini_image.png
 ---
 
 # Claude Code 완벽 가이드 — AI 코딩 도구의 진짜 패러다임 전환

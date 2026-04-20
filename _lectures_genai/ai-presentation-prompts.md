@@ -3,6 +3,7 @@ title: AI로 발표자료 만들기
 date: 2026-04-16
 description: "Genspark/Gamma 없이 내 자료를 AI로 슬라이드화하는 3가지 프롬프트"
 permalink: /lectures/genai/prompt/
+image: /assets/image/gemini_image.png
 ---
 
 # 내용은 있는데 슬라이드가 없을 때 — AI 프롬프트 3가지
