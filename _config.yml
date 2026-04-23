@@ -6,6 +6,9 @@ timezone: Asia/Seoul
 
 markdown: kramdown
 highlighter: rouge
+
+kramdown:
+  hard_wrap: true
 permalink: /blog/:year/:month/:day/:title/
 
 plugins:
