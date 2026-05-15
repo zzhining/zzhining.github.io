@@ -5,9 +5,6 @@ permalink: /lectures/
 ---
 
 # Lectures
-
-AI·데이터 분석 분야의 강의 및 교육 경험입니다.
-
 <div class="lecture-stats">
   <div class="stat-item"><span class="stat-num">30+</span><span class="stat-label">강의 기관</span></div>
   <div class="stat-item"><span class="stat-num">10+</span><span class="stat-label">강의 주제</span></div>
@@ -148,6 +145,6 @@ AI·데이터 분석 분야의 강의 및 교육 경험입니다.
 ---
 
 <div class="lecture-cta">
-  <p>강의 및 컨설팅 문의는 아래 링크에서 남겨주세요.</p>
+  <p>개인, 기업, 단체 강의 및 컨설팅 문의는 아래 링크에서 남겨주세요.</p>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSeoMQf4U5ZJ0DFzeq29Bi_RVrDeqrg8_3440LkkGbi_ihIykA/viewform?usp=sharing&ouid=108287339874311502567" class="cta-button" target="_blank" rel="noopener">강의·컨설팅 문의하기 →</a>
 </div>
