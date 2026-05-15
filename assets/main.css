@@ -764,6 +764,44 @@ main {
   letter-spacing: 0.05em;
 }
 
+.category-count {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 2rem;
+}
+
+.tag-cloud-item {
+  display: inline-block;
+  background-color: #f1f5f9;
+  color: #475569;
+  font-size: 0.85rem;
+  padding: 4px 12px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  text-decoration: none;
+}
+
+.tag-cloud-item:hover {
+  background-color: #eff6ff;
+  border-color: #3b82f6;
+  color: #1e40af;
+}
+
+.tag-section {
+  margin-bottom: 2rem;
+}
+
+.tag-section h2 {
+  font-size: 1.1rem;
+}
+
 .lecture-navigation {
   display: flex;
   justify-content: space-between;

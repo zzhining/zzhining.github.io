@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<div class="page-content">
+  <h1 class="page-title">{{ page.category }}</h1>
+  {% assign cat_posts = site.posts | where_exp: "post", "post.categories contains page.category" %}
+  <p class="category-count">{{ cat_posts.size }}개의 글</p>
+  {% if cat_posts.size > 0 %}
+  <ul class="post-list">
+    {% for post in cat_posts %}
+    <li>
+      <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <div class="post-meta">
+        <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        {% if post.categories and post.categories.size > 0 %}
+        <span class="post-categories">
+          {% for cat in post.categories %}
+          {% assign cat_data = site.data.categories[cat] %}
+          {% if cat_data %}
+          <a class="category-tag" href="{{ cat_data.url }}">{{ cat }}</a>
+          {% else %}
+          <span class="category-tag">{{ cat }}</span>
+          {% endif %}
+          {% endfor %}
+        </span>
+        {% endif %}
+      </div>
+      {% if post.description %}
+      <p class="post-desc">{{ post.description }}</p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>아직 게시물이 없습니다.</p>
+  {% endif %}
+</div>

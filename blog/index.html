@@ -16,7 +16,12 @@ permalink: /blog/
       {% if post.categories and post.categories.size > 0 %}
       <span class="post-categories">
         {% for category in post.categories %}
+        {% assign cat_data = site.data.categories[category] %}
+        {% if cat_data %}
+        <a class="category-tag" href="{{ cat_data.url }}">{{ category }}</a>
+        {% else %}
         <span class="category-tag">{{ category }}</span>
+        {% endif %}
         {% endfor %}
       </span>
       {% endif %}
