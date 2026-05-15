@@ -1,5 +1,7 @@
 ---
-layout: post
+permalink: /lectures/genai/ai-agent-05/
+prev_post: /lectures/genai/ai-agent-04/
+next_post: /lectures/genai/ai-agent-06/
 title: "에이전트의 판단 전략: ReAct vs Function Calling, 무엇을 선택할 것인가 [AI Agent 설계 시리즈 5편]"
 date: 2025-04-24
 categories: AI활용

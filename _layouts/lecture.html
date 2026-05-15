@@ -9,4 +9,14 @@ layout: default
   <div class="post-content">
     {{ content }}
   </div>
+  {% if page.prev_post or page.next_post %}
+  <nav class="lecture-navigation">
+    <div class="lecture-nav-prev">
+      {% if page.prev_post %}<a href="{{ page.prev_post }}">← 이전 글</a>{% endif %}
+    </div>
+    <div class="lecture-nav-next">
+      {% if page.next_post %}<a href="{{ page.next_post }}">다음 글 →</a>{% endif %}
+    </div>
+  </nav>
+  {% endif %}
 </article>

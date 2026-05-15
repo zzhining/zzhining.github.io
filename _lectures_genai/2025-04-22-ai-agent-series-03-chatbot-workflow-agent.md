@@ -1,5 +1,7 @@
 ---
-layout: post
+permalink: /lectures/genai/ai-agent-03/
+prev_post: /lectures/genai/ai-agent-02/
+next_post: /lectures/genai/ai-agent-04/
 title: "챗봇, 워크플로우, 에이전트: 판단 주체가 누구인가 [AI Agent 설계 시리즈 3편]"
 date: 2025-04-22
 categories: AI활용

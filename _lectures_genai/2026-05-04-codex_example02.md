@@ -1,5 +1,7 @@
 ---
-layout: post
+permalink: /lectures/genai/claude-code-02/
+prev_post: /lectures/genai/claude-code-01/
+next_post: /lectures/genai/claude-code-03/
 title: "비개발자를 위한 Claude Code 실습 가이드 2026 ②: 엑셀을 AI가 직접 고친다"
 date: 2026-05-04
 categories: AI활용

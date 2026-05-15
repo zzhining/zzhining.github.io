@@ -1,5 +1,7 @@
 ---
-layout: post
+permalink: /lectures/genai/claude-code-03/
+prev_post: /lectures/genai/claude-code-02/
+next_post: /lectures/genai/claude-code-04/
 title: "비개발자를 위한 Claude Code 실습 가이드 2026 ③: 매주 반복하는 보고서, 한 번만 만들면 된다"
 date: 2026-05-05
 categories: AI활용

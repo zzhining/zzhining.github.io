@@ -334,39 +334,40 @@ main {
 .post-content table,
 .page-content table {
   width: 100%;
+  min-width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
   font-size: 0.92rem;
-  overflow-x: auto;
-  display: block;
+  table-layout: auto;
 }
 
 .post-content table th,
 .post-content table td,
 .page-content table th,
 .page-content table td {
-  border: 1px solid #94a3b8;
+  border: 1px solid #bfdbfe;
   padding: 0.6rem 1rem;
   text-align: left;
   vertical-align: middle;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: keep-all;
 }
 
 .post-content table th,
 .page-content table th {
-  background-color: #e2e8f0;
+  background-color: #3b82f6;
   font-weight: 700;
-  color: #0f172a;
+  color: #ffffff;
 }
 
 .post-content table tr:nth-child(even) td,
 .page-content table tr:nth-child(even) td {
-  background-color: #f8fafc;
+  background-color: #eff6ff;
 }
 
 .post-content table tr:hover td,
 .page-content table tr:hover td {
-  background-color: #f1f5f9;
+  background-color: #dbeafe;
 }
 
 /* Home page */
@@ -752,4 +753,23 @@ main {
   font-weight: 700;
   color: #475569;
   letter-spacing: 0.05em;
+}
+
+.lecture-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+.lecture-nav-next {
+  text-align: right;
+}
+.lecture-navigation a {
+  color: #0056b3;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.lecture-navigation a:hover {
+  text-decoration: underline;
 }

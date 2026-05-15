@@ -1,5 +1,6 @@
 ---
-layout: post
+permalink: /lectures/genai/ai-agent-01/
+next_post: /lectures/genai/ai-agent-02/
 title: "AI는 어떻게 판단하는가: LLM 작동 원리부터 이해하기 [AI Agent 설계 시리즈 1편]"
 date: 2025-04-20
 categories: AI교육

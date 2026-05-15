@@ -1,5 +1,7 @@
 ---
-layout: post
+permalink: /lectures/genai/ai-agent-02/
+prev_post: /lectures/genai/ai-agent-01/
+next_post: /lectures/genai/ai-agent-03/
 title: "좋은 프롬프트의 구조: 구글이 제시한 5원칙과 실무 템플릿 [AI Agent 설계 시리즈 2편]"
 date: 2025-04-21
 categories: AI활용

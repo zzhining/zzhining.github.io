@@ -1,5 +1,6 @@
 ---
-layout: post
+permalink: /lectures/genai/claude-code-05/
+prev_post: /lectures/genai/claude-code-04/
 title: "비개발자를 위한 Claude Code 실습 가이드 2026 ⑤: PDF 100페이지를 5분 만에 실무 자료로"
 date: 2026-05-07
 categories: AI활용

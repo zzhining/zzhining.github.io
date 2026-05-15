@@ -1,5 +1,7 @@
 ---
-layout: post
+permalink: /lectures/genai/ai-agent-04/
+prev_post: /lectures/genai/ai-agent-03/
+next_post: /lectures/genai/ai-agent-05/
 title: "워크플로우 설계: 업무를 Input → Process → Output으로 분해하는 법 [AI Agent 설계 시리즈 4편]"
 date: 2025-04-23
 categories: AI활용

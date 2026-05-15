@@ -1,5 +1,7 @@
 ---
-layout: post
+permalink: /lectures/genai/ai-agent-06/
+prev_post: /lectures/genai/ai-agent-05/
+next_post: /lectures/genai/ai-agent-07/
 title: "AI가 사내 문서를 모르는 이유: RAG 설계 원리부터 실전까지 [AI Agent 설계 시리즈 6편]"
 date: 2025-04-25
 categories: AI활용

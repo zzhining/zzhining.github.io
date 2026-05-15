@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ChatGPT 공부하기 기능 완전 정복: 직장인 경제 공부에 이렇게 쓴다"
-date: 2025-05-01
+date: 2026-05-01
 categories: AI활용
 tags: [ChatGPT, 공부하기, 스터디모드, AI학습, 직장인공부]
 description: "ChatGPT의 '공부하기(Study Mode)' 기능을 제대로 쓰는 방법을 찾고 있다면 이 글이 답이다. 단순 답변 대신 사고를 유도하는 이 기능의 작동 원리와 직장인 경제 공부 활용 예시, 그리고 Gemini·Claude에서 동일한 효과를 내는 방법까지 정리했다."

@@ -1,5 +1,6 @@
 ---
-layout: post
+permalink: /lectures/genai/ai-agent-07/
+prev_post: /lectures/genai/ai-agent-06/
 title: "멀티 에이전트: 역할을 나누면 품질이 달라진다 [AI Agent 설계 시리즈 7편]"
 date: 2025-04-26
 categories: AI활용

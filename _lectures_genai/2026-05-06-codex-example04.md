@@ -1,5 +1,7 @@
 ---
-layout: post
+permalink: /lectures/genai/claude-code-04/
+prev_post: /lectures/genai/claude-code-03/
+next_post: /lectures/genai/claude-code-05/
 title: "비개발자를 위한 Claude Code 실습 가이드 2026 ④: 경쟁사 10곳을 동시에 조사한다"
 date: 2026-05-06
 categories: AI활용
