@@ -820,3 +820,40 @@ main {
 .lecture-navigation a:hover {
   text-decoration: underline;
 }
+
+/* ── Search ── */
+.search-box {
+  margin-bottom: 1.5rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #bfdbfe;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-box input:focus {
+  border-color: #3b82f6;
+}
+
+.search-count {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.search-no-results {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+mark {
+  background-color: #fef08a;
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 2px;
+}
