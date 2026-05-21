@@ -11,6 +11,14 @@ permalink: /lectures/
   <div class="stat-item"><span class="stat-num">5+</span><span class="stat-label">강의 연도</span></div>
 </div>
 
+<div class="board-cta">
+  <div class="board-cta-text">
+    <strong>🌈 실시간 강의 게시판</strong>
+    <span>실시간 강의 공유 자료를 위한 공유 문서 페이지입니다.</span>
+  </div>
+  <a href="https://docs.google.com/document/d/1S1b5cSCKZjKuE6KR2wjCDu3RgqfNM7JrCSI_CMxvY8c/edit?usp=sharing" class="cta-button" target="_blank" rel="noopener">실시간 강의 게시판 →</a>
+</div>
+
 <div class="notion-cta">
   <div class="notion-cta-text">
     <strong>📚 강의 자료 노션</strong>
