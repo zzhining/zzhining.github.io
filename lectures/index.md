@@ -16,7 +16,7 @@ permalink: /lectures/
     <strong>🌈 실시간 강의 게시판</strong>
     <span>실시간 강의 공유 자료를 위한 공유 문서 페이지입니다.</span>
   </div>
-  <a href="https://www.notion.so/GS-AI-374609b988cf8096a3e2eac1c44a4e1a" class="cta-button" target="_blank" rel="noopener">실시간 강의 게시판 →</a>
+  <a href="https://app.notion.com/p/AI-37556eb148148072a854d63554c3d5e5" class="cta-button" target="_blank" rel="noopener">실시간 강의 게시판 →</a>
 </div>
 
 <div class="notion-cta">
