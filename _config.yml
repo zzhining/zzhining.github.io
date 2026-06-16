@@ -22,6 +22,9 @@ collections:
   lectures_data:
     output: true
     permalink: /lectures/data/:name/
+  lectures_ai:
+    output: true
+    permalink: /lectures/ai/:name/
 
 defaults:
   - scope:
@@ -32,6 +35,11 @@ defaults:
   - scope:
       path: ""
       type: lectures_data
+    values:
+      layout: lecture
+  - scope:
+      path: ""
+      type: lectures_ai
     values:
       layout: lecture
 

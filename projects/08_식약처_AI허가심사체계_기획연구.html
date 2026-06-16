@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 기반 의약품 허가심사체계 개선 기획연구 | 강지영 포트폴리오</title>
+<style>
+:root {
+  --white: #ffffff;
+  --gray-50: #fafafa;
+  --gray-100: #f4f4f4;
+  --gray-200: #e6e6e6;
+  --gray-300: #d4d4d4;
+  --gray-400: #b0b0b0;
+  --gray-500: #8a8a8a;
+  --gray-600: #636363;
+  --gray-700: #454545;
+  --gray-800: #2a2a2a;
+  --gray-900: #181818;
+  --gray-950: #0a0a0a;
+  --black: #000000;
+
+  --accent: #1d4ed8;
+  --accent-hover: #1e40af;
+
+  --surface: var(--white);
+  --surface-subtle: var(--gray-50);
+  --surface-muted: var(--gray-100);
+  --surface-inverse: var(--gray-950);
+
+  --text-primary: var(--gray-950);
+  --text-secondary: var(--gray-600);
+  --text-tertiary: var(--gray-500);
+  --text-inverse: var(--white);
+
+  --border: var(--gray-200);
+  --border-strong: var(--gray-300);
+  --border-bold: var(--gray-950);
+
+  --fill-solid: var(--gray-950);
+  --fill-solid-hover: var(--gray-800);
+  --on-fill-solid: var(--white);
+
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui,
+    "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+
+  --fs-display: 44px;
+  --fs-h1: 32px;
+  --fs-h2: 24px;
+  --fs-h3: 19px;
+  --fs-body-lg: 18px;
+  --fs-body: 16px;
+  --fs-body-sm: 14px;
+  --fs-caption: 13px;
+  --fs-micro: 11px;
+
+  --lh-tight: 1.2;
+  --lh-snug: 1.35;
+  --lh-normal: 1.65;
+
+  --ls-tighter: -0.03em;
+  --ls-tight: -0.015em;
+  --ls-wider: 0.08em;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  --content-max: 1040px;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  --shadow-sm: 0 1px 2px rgba(10, 10, 10, 0.05);
+  --shadow-md: 0 4px 16px rgba(10, 10, 10, 0.08);
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background: var(--surface);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: var(--content-max); margin: 0 auto; padding: 0 var(--space-6); }
+
+/* ---------- Header / Hero ---------- */
+.hero {
+  background: var(--surface-inverse);
+  color: var(--text-inverse);
+  padding: var(--space-20) 0 var(--space-16);
+}
+.eyebrow {
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: var(--space-4);
+}
+.hero h1 {
+  font-size: var(--fs-display);
+  font-weight: 800;
+  letter-spacing: var(--ls-tighter);
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-5);
+}
+.hero p.lead {
+  font-size: var(--fs-body-lg);
+  color: var(--gray-300);
+  max-width: 640px;
+  margin-bottom: var(--space-8);
+}
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: var(--border-width-bold, 1px) solid var(--gray-800);
+}
+.meta-item .meta-label {
+  font-size: var(--fs-micro);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: var(--space-1);
+}
+.meta-item .meta-value {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* ---------- Stat cards ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: calc(-1 * var(--space-12));
+  position: relative;
+  z-index: 2;
+}
+.stat {
+  background: var(--surface);
+  padding: var(--space-6);
+}
+.stat .num {
+  font-size: var(--fs-h1);
+  font-weight: 800;
+  letter-spacing: var(--ls-tighter);
+  color: var(--text-primary);
+}
+.stat .num span { color: var(--accent); }
+.stat .label {
+  font-size: var(--fs-caption);
+  color: var(--text-secondary);
+  margin-top: var(--space-2);
+}
+
+/* ---------- Sections ---------- */
+section.block { padding: var(--space-16) 0; border-bottom: 1px solid var(--border); }
+section.block:last-of-type { border-bottom: none; }
+
+.section-head { margin-bottom: var(--space-8); }
+.section-head .eyebrow { color: var(--accent); margin-bottom: var(--space-2); }
+.section-head h2 {
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  letter-spacing: var(--ls-tight);
+}
+
+/* timeline / work */
+.timeline { display: flex; flex-direction: column; gap: 0; }
+.tl-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: var(--space-8);
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--border);
+}
+.tl-item:first-child { border-top: 1px solid var(--border-bold); }
+.tl-phase {
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  padding-top: var(--space-1);
+}
+.tl-content h3 {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+.tl-content p { color: var(--text-secondary); font-size: var(--fs-body-sm); margin-bottom: var(--space-2); }
+.tl-content ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-1); }
+.tl-content li {
+  font-size: var(--fs-body-sm);
+  color: var(--text-primary);
+  padding-left: var(--space-4);
+  position: relative;
+}
+.tl-content li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.7em;
+  width: 5px; height: 5px;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+}
+
+/* result grid */
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+.result-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  transition: border-color 180ms;
+}
+.result-card:hover { border-color: var(--border-bold); }
+.result-card .tag {
+  display: inline-block;
+  font-size: var(--fs-micro);
+  font-weight: 700;
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+  margin-bottom: var(--space-4);
+}
+.result-card h3 { font-size: var(--fs-h3); font-weight: 700; margin-bottom: var(--space-2); }
+.result-card p { font-size: var(--fs-body-sm); color: var(--text-secondary); }
+
+/* strengths (노희영 관점) */
+.strength-block { background: var(--surface-subtle); border-radius: var(--radius-md); padding: var(--space-10); }
+.strength-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-8); margin-top: var(--space-8); }
+.strength-item h3 {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+  display: flex; align-items: baseline; gap: var(--space-2);
+}
+.strength-item h3 .idx {
+  font-size: var(--fs-body-sm);
+  color: var(--accent);
+  font-weight: 800;
+}
+.strength-item p { font-size: var(--fs-body-sm); color: var(--text-secondary); }
+.quote {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  border-left: 3px solid var(--accent);
+  padding-left: var(--space-6);
+}
+
+/* deliverables */
+.deliv-list { display: flex; flex-direction: column; }
+.deliv-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--border);
+  font-size: var(--fs-body-sm);
+}
+.deliv-item:first-child { border-top: 1px solid var(--border-bold); }
+.deliv-item .name { font-weight: 600; color: var(--text-primary); }
+.deliv-item .desc { color: var(--text-tertiary); }
+
+/* cover image */
+.cover {
+  margin-top: var(--space-10);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--surface-subtle);
+}
+.cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+}
+.cover figcaption {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--fs-caption);
+  color: var(--text-tertiary);
+  border-top: 1px solid var(--border);
+}
+
+/* gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+.gallery figure {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--surface-subtle);
+}
+.gallery img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.gallery figcaption {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--fs-caption);
+  color: var(--text-tertiary);
+  border-top: 1px solid var(--border);
+}
+
+/* footer */
+footer {
+  padding: var(--space-10) 0;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: var(--fs-caption);
+}
+footer a { color: var(--text-secondary); text-decoration: none; border-bottom: 1px solid var(--border-strong); }
+
+@media (max-width: 768px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .result-grid, .strength-grid { grid-template-columns: 1fr; }
+  .tl-item { grid-template-columns: 1fr; gap: var(--space-2); }
+  .hero h1 { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">정부 정책연구 · Project 02</div>
+    <h1>AI 기반 의약품 허가심사체계<br>개선을 위한 기획연구</h1>
+    <p class="lead">식품의약품안전처 의약품 허가심사 프로세스에 AI 도입 가능성을 진단하기 위한 정부 R&D 기획연구. 제안부터 최종보고까지 전 과정을 수행했습니다.</p>
+    <div class="meta-row">
+      <div class="meta-item">
+        <div class="meta-label">발주처</div>
+        <div class="meta-value">식품의약품안전처</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">수행 기간</div>
+        <div class="meta-value">2024.03 – 2024.11</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">역할</div>
+        <div class="meta-value">기획연구원 · 연구 총괄 보조</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">유형</div>
+        <div class="meta-value">정부 R&D 기획연구</div>
+      </div>
+    </div>
+
+    <!-- 대표 이미지(커버): images/식약처_cover.jpg 자리에 실제 이미지 업로드 후 src 경로 수정 -->
+    <figure class="cover">
+      <img src="images/식약처_cover.jpg" alt="AI 기반 의약품 허가심사체계 개선 기획연구 대표 이미지" loading="lazy">
+      <figcaption>최종보고 발표 자료 표지 (예시) — 실제 이미지로 교체</figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat">
+      <div class="num"><span>9</span>개</div>
+      <div class="label">설문 대상 부서 (심사과)</div>
+    </div>
+    <div class="stat">
+      <div class="num"><span>3</span>건</div>
+      <div class="label">최종 보고서 산출</div>
+    </div>
+    <div class="stat">
+      <div class="num"><span>4</span>회</div>
+      <div class="label">착수·중간·최종 보고</div>
+    </div>
+    <div class="stat">
+      <div class="num"><span>8</span>개월</div>
+      <div class="label">연구 수행 기간</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="block">
+    <div class="section-head">
+      <div class="eyebrow">Process</div>
+      <h2>수행 업무</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-phase">01. 제안 / 착수</div>
+        <div class="tl-content">
+          <h3>연구과제 제안 및 착수보고</h3>
+          <p>AI 활용 허가심사체계 개선 방향을 제안하고, 식약처 검토의견을 반영해 연구계획서를 최종 확정했습니다.</p>
+          <ul>
+            <li>연구과제제안서(RFP 대응) 작성</li>
+            <li>식약처 검토의견 반영 최종 연구계획서 수정</li>
+            <li>착수보고 자료 제작 및 발표</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-phase">02. 조사 / 분석</div>
+        <div class="tl-content">
+          <h3>현황 사례조사 및 AI 활용 가능성 분석</h3>
+          <p>국내·해외 허가심사 AI 활용 사례를 조사하고, 식약처 내부 프로세스에 적용 가능한 영역을 분석했습니다.</p>
+          <ul>
+            <li>국내외 의약품 허가심사 AI 활용 사례조사</li>
+            <li>AI 활용 심사체계 가능성 분석 보고서 작성</li>
+            <li>중간보고(2024.09) 자료 제작</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-phase">03. 설문 / 검증</div>
+        <div class="tl-content">
+          <h3>전 부서 설문조사 기획·통합</h3>
+          <p>실제 심사 업무를 수행하는 9개 부서(생물제제과, 세포유전자치료제과, 종양항생약품과 등)를 대상으로 AI 도입 수요·우려를 조사했습니다.</p>
+          <ul>
+            <li>설문 문항 설계 (24-09 기획연구 설문지)</li>
+            <li>9개 심사과 대상 설문 배포 및 회수</li>
+            <li>부서별 응답 통합·분석 (설문지 내용 통합)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-phase">04. 최종 정리</div>
+        <div class="tl-content">
+          <h3>최종보고 및 보고서 완성</h3>
+          <p>사례조사·가능성 분석·설문 결과를 통합해 최종보고서 3종을 완성하고, 설문 결과를 반영한 최종보고를 진행했습니다.</p>
+          <ul>
+            <li>최종보고서_사례조사 작성</li>
+            <li>최종보고서_AI 활용 심사체계 가능성 분석 작성</li>
+            <li>설문조사 결과 추가 최종보고(2024.11) 발표</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="section-head">
+      <div class="eyebrow">Outcome</div>
+      <h2>핵심 성과</h2>
+    </div>
+    <div class="result-grid">
+      <div class="result-card">
+        <span class="tag">Research</span>
+        <h3>현장 기반 AI 도입 진단</h3>
+        <p>실제 심사 인력의 설문 데이터를 근거로, AI 도입이 필요한 업무와 우려 지점을 구체적으로 식별한 분석 보고서를 산출했습니다.</p>
+      </div>
+      <div class="result-card">
+        <span class="tag">Coordination</span>
+        <h3>9개 부서 협업 조율</h3>
+        <p>서로 다른 심사 영역(생물제제, 세포유전자치료제, 약효동등성 등)의 부서를 대상으로 설문을 일괄 기획·배포·회수해 단일 분석 체계로 통합했습니다.</p>
+      </div>
+      <div class="result-card">
+        <span class="tag">Delivery</span>
+        <h3>전 과정 보고서 완성</h3>
+        <p>제안서 → 착수보고 → 중간보고 → 최종보고에 이르는 전 단계의 보고자료와 최종 결과보고서 3종을 책임 작성했습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="section-head">
+      <div class="eyebrow">Why It Sells</div>
+      <h2>이 프로젝트가 보여주는 강점</h2>
+    </div>
+    <div class="strength-block">
+      <div class="quote">"정부 정책연구를, 제안서 한 장부터 최종보고서까지<br>혼자서도 끝낼 수 있는 사람."</div>
+      <div class="strength-grid">
+        <div class="strength-item">
+          <h3><span class="idx">01</span> 기획부터 실행까지 엔드투엔드</h3>
+          <p>RFP 대응 제안서 작성부터 착수·중간·최종보고, 최종 결과보고서 작성까지 연구과제의 전 생애주기를 직접 다뤘습니다. 어느 단계에 투입돼도 즉시 기여할 수 있는 실무자입니다.</p>
+        </div>
+        <div class="strength-item">
+          <h3><span class="idx">02</span> 복잡한 이해관계자 조율 역량</h3>
+          <p>9개의 서로 다른 전문 부서를 대상으로 설문을 설계·배포·통합한 경험은, 다양한 현업 이해관계자의 의견을 하나의 결론으로 모아내는 조율 능력을 보여줍니다.</p>
+        </div>
+        <div class="strength-item">
+          <h3><span class="idx">03</span> AI 도메인 적용 리서치 전문성</h3>
+          <p>의약품 허가심사라는 고도로 규제된 전문 영역에 AI 적용 가능성을 진단한 경험은, 새로운 산업·도메인에 AI를 빠르게 학습·적용시키는 역량을 입증합니다.</p>
+        </div>
+        <div class="strength-item">
+          <h3><span class="idx">04</span> 정부 R&D 문서 작성 표준 이해</h3>
+          <p>연구계획서, 착수·중간·최종보고서 등 정부 R&D의 표준 문서 양식과 검토 프로세스에 익숙해, 공공기관·대기업 등 격식 있는 보고 환경에 빠르게 적응합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="section-head">
+      <div class="eyebrow">Gallery</div>
+      <h2>작업 화면 / 보고 자료</h2>
+    </div>
+    <!-- 갤러리: images/식약처_01.jpg ~ 03.jpg 자리에 실제 이미지(보고서 표지, 발표 장면, 설문 결과 차트 등) 업로드 후 경로 수정 -->
+    <div class="gallery">
+      <figure>
+        <img src="images/식약처_01.jpg" alt="착수보고 발표 자료" loading="lazy">
+        <figcaption>착수보고 발표 자료</figcaption>
+      </figure>
+      <figure>
+        <img src="images/식약처_02.jpg" alt="설문조사 결과 분석 화면" loading="lazy">
+        <figcaption>9개 부서 설문조사 결과 통합본</figcaption>
+      </figure>
+      <figure>
+        <img src="images/식약처_03.jpg" alt="최종보고서 표지" loading="lazy">
+        <figcaption>최종보고서 표지</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="section-head">
+      <div class="eyebrow">Deliverables</div>
+      <h2>주요 산출물</h2>
+    </div>
+    <div class="deliv-list">
+      <div class="deliv-item">
+        <span class="name">연구과제제안서 (RFP 대응)</span>
+        <span class="desc">2024.03</span>
+      </div>
+      <div class="deliv-item">
+        <span class="name">최종 연구계획서 (식약처 검토의견 반영)</span>
+        <span class="desc">2024.07</span>
+      </div>
+      <div class="deliv-item">
+        <span class="name">착수보고 자료</span>
+        <span class="desc">2024.07</span>
+      </div>
+      <div class="deliv-item">
+        <span class="name">중간보고 자료</span>
+        <span class="desc">2024.09</span>
+      </div>
+      <div class="deliv-item">
+        <span class="name">최종보고서 – 사례조사</span>
+        <span class="desc">2024.10</span>
+      </div>
+      <div class="deliv-item">
+        <span class="name">최종보고서 – AI 활용 심사체계 가능성 분석</span>
+        <span class="desc">2024.10</span>
+      </div>
+      <div class="deliv-item">
+        <span class="name">9개 부서 설문조사 결과 통합본</span>
+        <span class="desc">2024.09</span>
+      </div>
+      <div class="deliv-item">
+        <span class="name">최종보고(설문 결과 추가)</span>
+        <span class="desc">2024.11</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">강지영 (쯔닝) Portfolio · <a href="https://zzhining.github.io">zzhining.github.io</a></div>
+</footer>
+
+</body>
+</html>

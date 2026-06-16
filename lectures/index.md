@@ -118,6 +118,15 @@ permalink: /lectures/
 ## 강의 자료
 
 <div class="lecture-grid lecture-grid-main">
+  <a class="lecture-card" href="/lectures/ai/">
+    <div class="lecture-card-image">
+      <img src="/assets/image/gen_ai_thumb.png" alt="AI 강의자료">
+    </div>
+    <div class="lecture-card-body">
+      <h3 class="lecture-card-title">AI 강의자료 (IPA)</h3>
+      <p class="lecture-card-desc">AI 기초부터 배포·보안·연합학습까지 11개 모듈 커리큘럼</p>
+    </div>
+  </a>
   <a class="lecture-card" href="/lectures/genai/">
     <div class="lecture-card-image">
       <img src="/assets/image/gen_ai_thumb.png" alt="생성형 AI 강의자료">
