@@ -154,6 +154,15 @@ permalink: /lectures/
       <p class="lecture-card-desc">Colab 환경에서 배우는 Python 기초, Pandas, 치안데이터 실습</p>
     </div>
   </a>
+  <a class="lecture-card" href="/lectures/data-visualization/">
+    <div class="lecture-card-image">
+      <img src="/assets/image/data_thumb.png" alt="데이터 시각화 강의자료">
+    </div>
+    <div class="lecture-card-body">
+      <h3 class="lecture-card-title">데이터 시각화</h3>
+      <p class="lecture-card-desc">시각화 이론, 차트 유형, seaborn·Plotly 실습</p>
+    </div>
+  </a>
   <a class="lecture-card" href="https://www.notion.so/Coach-space-518158da780b449d8373cba9e527db62" target="_blank" rel="noopener">
     <div class="lecture-card-image lecture-card-image-notion">
       <div class="notion-card-inner">

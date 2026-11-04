@@ -28,6 +28,9 @@ collections:
   lectures_python:
     output: true
     permalink: /lectures/python/:name/
+  lectures_data_visualization:
+    output: true
+    permalink: /lectures/data-visualization/:name/
 
 defaults:
   - scope:
@@ -48,6 +51,11 @@ defaults:
   - scope:
       path: ""
       type: lectures_python
+    values:
+      layout: lecture
+  - scope:
+      path: ""
+      type: lectures_data_visualization
     values:
       layout: lecture
 
