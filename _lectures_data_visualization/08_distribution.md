@@ -32,6 +32,10 @@ sns.histplot(data=penguins, x='flipper_length_mm')
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/08_result_01.png)
+
+*실행 결과*
+
 ## 2. 계급의 크기 (bins)
 bins가 너무 적으면 모양이 뭉개지고, 너무 많으면 들쭉날쭉해짐
 
@@ -44,6 +48,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/08_result_02.png)
+
+*실행 결과*
+
 ## 3. 범주별 색 구분 / 여러 변수 한 번에
 ### 두 그룹의 분포 비교
 
@@ -51,6 +59,10 @@ plt.show()
 sns.histplot(data=penguins, x='flipper_length_mm', hue='species', element='step')
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/08_result_03.png)
+
+*실행 결과*
 
 ### 여러 feature의 분포를 한눈에
 
@@ -60,9 +72,16 @@ plt.tight_layout()
 plt.show()
 
 long = penguins.melt(value_vars=['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm'])
-sns.displot(data=long, x='value', col='variable', facet_kws={'sharex': False}, height=3)
+sns.displot(data=long, x='value', col='variable', common_bins=False,
+            facet_kws={'sharex': False}, height=3)
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/08_result_04.png)
+
+![실행 결과](/assets/image/lectures/data-visualization/08_result_05.png)
+
+*실행 결과*
 
 ### 실습: 2015 무단횡단 사상자 분포
 > 데이터 준비: [10 문서 4절](/lectures/data-visualization/10_spatial-viz/#data-prep)
@@ -103,12 +122,22 @@ plt.tight_layout()
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/08_result_06.png)
+
+*실행 결과*
+
 ### (참고) 왜도와 첨도
 
 | 지표 | 의미 | 해석 |
 |---|---|---|
 | **왜도** (skewness) | 분포가 좌우 대칭인지, 어느 쪽으로 치우쳤는지 | **> 0**: 값이 왼쪽에 몰리고 **오른쪽 꼬리가 김** / **< 0**: 값이 오른쪽에 몰리고 **왼쪽 꼬리가 김** / = 0: 대칭 |
 | **첨도** (kurtosis) | 분포의 봉우리가 얼마나 뾰족하고 꼬리가 두꺼운지 | **> 0**: 정규분포보다 **뾰족하고 꼬리가 두꺼움**(이상치가 많음) / **< 0**: 정규분포보다 **완만하고 꼬리가 얇음** |
+
+![왜도와 첨도](/assets/image/lectures/data-visualization/08_viz_S113_0.png)
+
+![왜도와 첨도](/assets/image/lectures/data-visualization/08_viz_S114_0.png)
+
+*왜도와 첨도*
 
 > 첨도 > 0은 분산이 작아진다는 뜻이 아니라 정규분포보다 뾰족하고 꼬리가 두껍다는 뜻임. 여기서 첨도는 정규분포를 0으로 맞춘 **초과 첨도**(pandas `kurt()` 기준)임
 
@@ -131,6 +160,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/08_result_07.png)
+
+*실행 결과*
+
 ### 대역폭(bandwidth)에 따른 차이
 대역폭이 작으면 울퉁불퉁하고, 크면 지나치게 뭉개짐
 
@@ -140,6 +173,10 @@ for bw in [0.25, 1, 3]:
 plt.legend()
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/08_result_08.png)
+
+*실행 결과*
 
 ## 6. 두 변수의 확률 분포 (이변량 분포)
 
@@ -154,6 +191,14 @@ sns.histplot(data=penguins, x='bill_length_mm', y='bill_depth_mm', bins=30, cbar
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/08_result_09.png)
+
+![실행 결과](/assets/image/lectures/data-visualization/08_result_10.png)
+
+![실행 결과](/assets/image/lectures/data-visualization/08_result_11.png)
+
+*실행 결과*
+
 ## 7. 분포를 요약하는 그래프 — 박스 플롯, 바이올린 플롯
 
 ```python
@@ -165,6 +210,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/08_result_12.png)
+
+*실행 결과*
+
 > 박스의 구성(Q1·중앙값·Q3, 이상치)은 [13 문서](/lectures/data-visualization/13_seaborn-charts/)에서 자세히 다룸
 
 ## 8. 분포 시각화의 확장
@@ -173,6 +222,14 @@ plt.show()
 |---|---|
 | 지도 히트맵 | 위치별 밀도를 지도 위에 색으로 → [10 문서](/lectures/data-visualization/10_spatial-viz/)의 `folium.plugins.HeatMap` |
 | 웹 UX 클릭 히트맵 | 홈페이지에서 마우스 클릭 위치의 분포를 시각화해 UX 분석 |
+
+![지도 히트맵과 웹 클릭 히트맵](/assets/image/lectures/data-visualization/08_viz_S118_0.jpg)
+
+![지도 히트맵과 웹 클릭 히트맵](/assets/image/lectures/data-visualization/08_viz_S119_0.jpg)
+
+![지도 히트맵과 웹 클릭 히트맵](/assets/image/lectures/data-visualization/08_viz_S119_1.jpg)
+
+*지도 히트맵과 웹 클릭 히트맵*
 
 ## 정리
 

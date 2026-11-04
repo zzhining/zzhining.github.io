@@ -38,7 +38,7 @@ df[df['dept'].isin(['IT', 'operations'])]           # dept가 목록 안에 있�
 |---|---|---|
 | `&` | 그리고 (and) | `df[(df.salary > 100000) & (df.gender == 'Female')]` |
 | `\|` | 또는 (or) | `df[(df.dept == 'IT') \| (df.dept == 'HR')]` |
-| `~` | 아님 (not) | `df[~df.dept.isin(['IT'])]` |
+| `~` | 아니다 (not) | `df[~df.dept.isin(['IT'])]` |
 
 > 조건을 여러 개 쓸 때는 **각 조건을 괄호로 감싸야** 함. Pandas에서는 `and`/`or` 대신 `&`/`|`를 씀
 

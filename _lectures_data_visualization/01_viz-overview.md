@@ -23,16 +23,34 @@ next_post: /lectures/data-visualization/02_info-design-process/
   - **성별**은? **국가**는? **학위**는?
 - 수만 행의 표로는 바로 답할 수 없음. 막대그래프 하나로 그리면 바로 보임
 
+![Kaggle 사용자의 연령·성별·국가·학위 분포](/assets/image/lectures/data-visualization/01_viz_S003_0.png)
+
+![Kaggle 사용자의 연령·성별·국가·학위 분포](/assets/image/lectures/data-visualization/01_viz_S004_0.png)
+
+![Kaggle 사용자의 연령·성별·국가·학위 분포](/assets/image/lectures/data-visualization/01_viz_S004_1.png)
+
+![Kaggle 사용자의 연령·성별·국가·학위 분포](/assets/image/lectures/data-visualization/01_viz_S005_0.png)
+
+*Kaggle 사용자의 연령·성별·국가·학위 분포*
+
 ### 같은 통계, 다른 데이터 — Datasaurus Dozen
 - 평균, 표준편차, 상관계수가 **거의 같은** 데이터셋 13개(공룡 모양 1개 + 12개)임
 - 요약 통계만 보면 같은 데이터처럼 보이지만, 그려 보면 공룡, 별, 원, 줄무늬처럼 전혀 다름
 - 교훈: **요약 통계만 믿지 말고 반드시 그려 봐야 함.** 같은 원리를 보여 주는 앤스컴 콰르텟은 [07 문서](/lectures/data-visualization/07_scatter-plot/)에서 직접 그려 봄
+
+![Datasaurus Dozen](/assets/image/lectures/data-visualization/01_viz_S008_0.png)
+
+*Datasaurus Dozen*
 
 ## 2. 데이터 시각화 사례
 ### 나이팅게일의 '사망 원인 도표' (1858)
 - 원래 이름: *Diagram of the Causes of Mortality in the Army in the East*
 - 크림전쟁에서 **전투보다 전염병으로 죽는 병사가 훨씬 많음**는 사실을 보여 줘 정부를 설득했음. 그 결과 병원 위생 개혁으로 이어졌음
 - 차트 형태: 나이팅게일 차트(로즈 다이어그램) → [06 문서](/lectures/data-visualization/06_comparison-chart/)
+
+![나이팅게일의 사망 원인 도표](/assets/image/lectures/data-visualization/01_viz_S010_0.jpg)
+
+*나이팅게일의 사망 원인 도표*
 
 ### 미나르의 '나폴레옹 모스크바 침공 다이어그램' (1869)
 프랑스 공학자 샤를 미나르가 1812년 러시아 원정의 진격과 퇴각을 한 장에 담았음
@@ -47,8 +65,18 @@ next_post: /lectures/data-visualization/02_info-design-process/
 
 > 하나의 그림에 **6개 변수**(병사 수, 위도, 경도, 방향, 기온, 날짜)를 담은 대표 사례임
 
+![미나르의 나폴레옹 러시아 원정 다이어그램](/assets/image/lectures/data-visualization/01_viz_S011_0.jpg)
+
+*미나르의 나폴레옹 러시아 원정 다이어그램*
+
 ### 표 vs 그래프
 - 같은 주가 데이터도 숫자 표(야후 파이낸스)로 보면 흐름이 안 보임. 차트나 히트맵(핀비즈)으로 보면 바로 이해됨
+
+![표(야후 파이낸스) vs 그래프(핀비즈)](/assets/image/lectures/data-visualization/01_viz_S012_0.png)
+
+![표(야후 파이낸스) vs 그래프(핀비즈)](/assets/image/lectures/data-visualization/01_viz_S012_1.png)
+
+*표(야후 파이낸스) vs 그래프(핀비즈)*
 
 ## 3. 데이터 시각화란
 > 방대한 양의 정보를 한눈에 이해할 수 있도록 **데이터의 관계와 분포**를 차트, 그래프, 지도 형태로 전달하는 것

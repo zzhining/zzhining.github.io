@@ -41,6 +41,12 @@ plt.xticks(rotation=90)
 plt.show()
 ```
 
+![신고 종류별 합계와 막대그래프](/assets/image/lectures/python/14_py_S070_1.png)
+
+![신고 종류별 합계와 막대그래프](/assets/image/lectures/python/14_py_S070_0.png)
+
+*신고 종류별 합계와 막대그래프*
+
 ## 3. 구에 따라 신고 수가 다른가?
 
 ```python
@@ -51,6 +57,12 @@ sns.barplot(x=gu_total.index, y=gu_total)
 plt.xticks(rotation=90)
 plt.show()
 ```
+
+![구별 신고 수 합계와 막대그래프](/assets/image/lectures/python/14_py_S071_0.png)
+
+![구별 신고 수 합계와 막대그래프](/assets/image/lectures/python/14_py_S071_1.png)
+
+*구별 신고 수 합계와 막대그래프*
 
 > **주의**: `sns.barplot(gu_total.index, gu_total)`은 seaborn 0.12부터 에러가 남. `x=`, `y=`를 꼭 써야 함
 
@@ -63,6 +75,10 @@ sns.heatmap(seoul_2021, annot=True, fmt='g')   # fmt='g': 숫자를 지수 표�
 plt.show()
 ```
 
+![구별·신고 종류별 신고 수 heatmap](/assets/image/lectures/python/14_py_S080_0.png)
+
+*구별·신고 종류별 신고 수 heatmap*
+
 ### 가정폭력 신고가 많은 5개 구
 
 ```python
@@ -70,6 +86,10 @@ tab = seoul_2021['가정폭력신고수'].sort_values(ascending=False).head()
 sns.barplot(x=tab.index, y=tab)
 plt.show()
 ```
+
+![가정폭력 신고가 많은 5개 구](/assets/image/lectures/python/14_py_S081_0.png)
+
+*가정폭력 신고가 많은 5개 구*
 
 ### 신고 종류별 신고가 많은 5개 구 (subplot 2×4)
 
@@ -85,6 +105,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+![신고 종류별 신고가 많은 5개 구](/assets/image/lectures/python/14_py_S082_0.png)
+
+*신고 종류별 신고가 많은 5개 구*
+
 > `for i in range(len(...))` 패턴은 [05 문서](/lectures/python/05_for-loop/)를 참고. `plt.subplot`의 칸 번호는 **1부터** 시작하므로 `i + 1`을 씀
 
 ### 강남구에서 신고가 많은 신고 종류
@@ -94,6 +118,10 @@ tab = seoul_2021.iloc[0].sort_values(ascending=False).head()   # 0번째 행 = �
 sns.barplot(x=tab.index, y=tab)
 plt.show()
 ```
+
+![강남구에서 신고가 많은 신고 종류](/assets/image/lectures/python/14_py_S083_0.png)
+
+*강남구에서 신고가 많은 신고 종류*
 
 > 특정 구를 이름으로 고르려면 `seoul_2021.loc['강남구']`가 더 안전함
 
@@ -111,6 +139,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+![구별 신고가 많은 5개 신고 종류](/assets/image/lectures/python/14_py_S084_0.png)
+
+*구별 신고가 많은 5개 신고 종류*
+
 ## 5. 신고 종류끼리 관련이 있나?
 
 ```python
@@ -118,6 +150,10 @@ plt.figure(figsize=(8, 6))
 sns.heatmap(seoul_2021.corr(numeric_only=True), annot=True)
 plt.show()
 ```
+
+![신고 종류 간 상관관계](/assets/image/lectures/python/14_py_S085_0.png)
+
+*신고 종류 간 상관관계*
 
 > **수정**: pandas 2.x에서는 문자 열이 하나라도 있으면 `corr()`이 에러를 냄. `numeric_only=True`를 붙였음
 

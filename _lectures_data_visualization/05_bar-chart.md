@@ -32,6 +32,14 @@ sns.barplot(data=flights[flights['year'] == 1960], x='month', y='passengers', co
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/05_result_01.png)
+
+*실행 결과*
+
+![막대 그래프 예시 (코로나19 이후 감정 변화)](/assets/image/lectures/data-visualization/05_viz_S063_0.png)
+
+*막대 그래프 예시 (코로나19 이후 감정 변화)*
+
 ## 2. 한 범주에 값이 여러 개일 때 — 오차 막대
 한 범주에 데이터가 여러 개면 막대 높이는 **평균**이 되고, 퍼진 정도를 보여 주는 **오차 막대(검은 선)**가 추가됨
 
@@ -43,12 +51,22 @@ sns.barplot(data=tips, x='day', y='total_bill', errorbar='sd')  # 표준편차�
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/05_result_02.png)
+
+![실행 결과](/assets/image/lectures/data-visualization/05_result_03.png)
+
+*실행 결과*
+
 ## 3. 색상으로 범주 구분
 
 ```python
 sns.barplot(data=tips, x='day', y='total_bill', hue='sex')
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/05_result_04.png)
+
+*실행 결과*
 
 ## 4. Bad vs Good 막대 그래프
 ### Bad (1) 막대 값의 차이가 작으면 비교하기 어렵음
@@ -63,6 +81,10 @@ sns.pointplot(data=df, x='지점', y='만족도', ax=axes[2]).set_title('Good: �
 plt.tight_layout()
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/05_result_05.png)
+
+*실행 결과*
 
 > y축을 0이 아닌 값에서 시작하면 차이가 **과장**됨. 축 범위를 꼭 표시하거나 점 그래프를 쓸 것 (ACCENT의 Truthfulness)
 
@@ -79,6 +101,16 @@ plt.xlabel('평균 마력')
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/05_result_06.png)
+
+*실행 결과*
+
+![Bad: 막대가 너무 많은 경우 vs 산점도로 바꾼 경우](/assets/image/lectures/data-visualization/05_viz_S068_0.png)
+
+![Bad: 막대가 너무 많은 경우 vs 산점도로 바꾼 경우](/assets/image/lectures/data-visualization/05_viz_S068_1.png)
+
+*Bad: 막대가 너무 많은 경우 vs 산점도로 바꾼 경우*
+
 ### Good (3) 색으로 강조하기
 - 막대마다 색을 달리해 **특정 상태나 범위**를 강조함
 
@@ -86,10 +118,20 @@ plt.show()
 avg = tips.groupby('day', observed=True)['total_bill'].mean()
 colors = ['tomato' if v == avg.max() else 'lightgray' for v in avg]
 
-sns.barplot(x=avg.index, y=avg.values, hue=avg.index, palette=colors, legend=False)
+sns.barplot(x=avg.index, y=avg.values, hue=avg.index, palette=colors, dodge=False, legend=False)
 plt.title('가장 높은 요일만 강조')
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/05_result_07.png)
+
+*실행 결과*
+
+![Good: 색으로 강조한 막대그래프](/assets/image/lectures/data-visualization/05_viz_S069_0.png)
+
+![Good: 색으로 강조한 막대그래프](/assets/image/lectures/data-visualization/05_viz_S069_1.png)
+
+*Good: 색으로 강조한 막대그래프*
 
 ## 5. 카운트 플롯 (Count plot)
 - 세로축이 **범주별 개수**임. 한 속성의 범주별 빈도를 볼 때 씀
@@ -99,6 +141,10 @@ titanic = sns.load_dataset('titanic')
 sns.countplot(data=titanic, x='class', hue='survived')
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/05_result_08.png)
+
+*실행 결과*
 
 | | 히스토그램 | 카운트 플롯 |
 |---|---|---|
@@ -122,6 +168,16 @@ plt.show()
 sns.histplot(data=titanic, x='class', hue='who', multiple='stack', shrink=0.8)
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/05_result_09.png)
+
+![실행 결과](/assets/image/lectures/data-visualization/05_result_10.png)
+
+*실행 결과*
+
+![누적 막대그래프 예시](/assets/image/lectures/data-visualization/05_viz_S071_0.png)
+
+*누적 막대그래프 예시*
 
 ## 7. 참고: 분포를 보여 주는 그래프
 막대 그래프 계열이지만 분포를 보여 주는 히스토그램, 박스 플롯, 바이올린 플롯은 [08 문서](/lectures/data-visualization/08_distribution/)에서 다룸

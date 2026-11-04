@@ -40,6 +40,10 @@ sns.heatmap(pivot, annot=True, fmt='d', cmap='YlGnBu')
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/06_result_01.png)
+
+*실행 결과*
+
 > 해마다 늘어나는 추세(→)와 7~8월에 몰리는 계절성(↓)이 한눈에 보임
 
 ### 활용 사례 (1) 그룹별·기간별 비교
@@ -50,6 +54,10 @@ ratio = pivot / pivot.sum()          # 열(연도)마다 합이 1이 되도록
 sns.heatmap(ratio, cmap='Reds', annot=True, fmt='.1%')
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/06_result_02.png)
+
+*실행 결과*
 
 ### 활용 사례 (2) 상관계수로 영향력 있는 변수 찾기
 `mpg`(자동차 연비) 데이터를 씀
@@ -63,6 +71,10 @@ sns.heatmap(corr, mask=mask, annot=True, fmt='.2f',
             cmap='coolwarm', vmin=-1, vmax=1, center=0)
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/06_result_03.png)
+
+*실행 결과*
 
 > `mpg`(연비)와 가장 강하게 관련된 변수는 `weight`(무게)임(음의 상관)
 
@@ -82,6 +94,16 @@ g.ax.tick_params(axis='x', rotation=90)
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/06_result_04.png)
+
+*실행 결과*
+
+![색만 쓴 히트맵 vs 크기를 함께 쓴 히트맵](/assets/image/lectures/data-visualization/06_viz_S084_1.png)
+
+![색만 쓴 히트맵 vs 크기를 함께 쓴 히트맵](/assets/image/lectures/data-visualization/06_viz_S084_0.png)
+
+*색만 쓴 히트맵 vs 크기를 함께 쓴 히트맵*
+
 ## 3. 클러스터맵 (Clustermap)
 - 히트맵의 행과 열을 **계층적 군집**으로 다시 배열하고 덴드로그램을 함께 그림. 비슷한 것끼리 모임
 
@@ -93,6 +115,10 @@ lut = dict(zip(species.unique(), ['r', 'g', 'b']))
 sns.clustermap(iris, row_colors=species.map(lut), standard_scale=1, cmap='mako')
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/06_result_05.png)
+
+*실행 결과*
 
 > 왼쪽 색 띠(품종)가 군집 결과와 거의 맞아떨어짐
 
@@ -109,12 +135,24 @@ fig = px.treemap(df, path=[px.Constant('World'), 'continent', 'country'],
 fig.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/06_result_06.png)
+
+*실행 결과*
+
 > seaborn에는 트리맵이 없어서 plotly를 씀 ([15 문서](/lectures/data-visualization/15_plotly-express/)). 사각형을 클릭하면 그 안으로 들어감
+
+![트리맵 예시](/assets/image/lectures/data-visualization/06_viz_S086_0.png)
+
+*트리맵 예시*
 
 ## 5. 거미줄 차트 (레이더 차트, 스타 차트)
 - 중심에서 바깥으로 축을 여러 개 그리고, 변수 값을 **중심으로부터의 거리**로 표시함
 - 중심은 최솟값, 바깥 끝은 최댓값임
 - 대상 몇 개의 **여러 지표를 한 번에 비교**할 때 좋음 (예: 선수 능력치)
+
+![레이더 차트 예시](/assets/image/lectures/data-visualization/06_viz_S087_0.png)
+
+*레이더 차트 예시*
 
 ### 실습: 2015 무단횡단 데이터 — 시도별 사고 현황
 > 데이터 준비는 [10 문서 4절](/lectures/data-visualization/10_spatial-viz/#data-prep)을 참고. 여기서는 `jaywalk` DataFrame과 `시도` 열을 만들었다고 가정함
@@ -150,6 +188,16 @@ fig = px.bar_polar(wind, r='frequency', theta='direction', color='strength',
 fig.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/06_result_07.png)
+
+*실행 결과*
+
+![나이팅게일 차트와 같은 데이터의 누적 막대](/assets/image/lectures/data-visualization/06_viz_S088_0.png)
+
+![나이팅게일 차트와 같은 데이터의 누적 막대](/assets/image/lectures/data-visualization/06_viz_S088_1.png)
+
+*나이팅게일 차트와 같은 데이터의 누적 막대*
+
 ## 7. 파이 차트 (Pie chart)
 - 전체를 100%로 놓고 **부분 간의 비율**을 보여 줌
 - 조각의 각도 = 값이 전체 360°에서 차지하는 비율
@@ -165,6 +213,10 @@ plt.title('요일별 방문 비율')
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/06_result_08.png)
+
+*실행 결과*
+
 > 인터랙티브 파이·도넛 차트는 [16 문서](/lectures/data-visualization/16_plotly-pie-bubble/)를 참고
 
 ## 8. 평행 좌표계 (Parallel coordinates)
@@ -173,6 +225,12 @@ plt.show()
 - 대상 하나가 축을 가로지르는 **선 하나**가 됨
 - 분석 초기에 많은 변수 사이의 경향을 찾을 때, 또는 경향을 설득력 있게 전달할 때 씀
 - 예시(미국 주별 교육 지표): 읽기·수학·쓰기 점수가 높을수록 SAT 응시율이 낮은 패턴을 찾을 수 있음
+
+![평행 좌표계 예시 (미국 주별 교육 지표, iris)](/assets/image/lectures/data-visualization/06_viz_S091_0.png)
+
+![평행 좌표계 예시 (미국 주별 교육 지표, iris)](/assets/image/lectures/data-visualization/06_viz_S056_0.png)
+
+*평행 좌표계 예시 (미국 주별 교육 지표, iris)*
 
 ### 기본 (pandas)
 
@@ -184,6 +242,10 @@ parallel_coordinates(iris, 'species', color=['tab:blue', 'tab:orange', 'tab:gree
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/06_result_09.png)
+
+*실행 결과*
+
 ### 인터랙티브 (plotly) — 축을 드래그해 범위를 골라 볼 수 있음
 
 ```python
@@ -193,6 +255,10 @@ fig = px.parallel_coordinates(df, color='species_id',
                               color_continuous_scale=px.colors.diverging.Tealrose)
 fig.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/06_result_10.png)
+
+*실행 결과*
 
 ### 실습: 2015 무단횡단 데이터
 

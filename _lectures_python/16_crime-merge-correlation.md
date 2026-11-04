@@ -42,6 +42,16 @@ crime = crime.iloc[:, 1:]     # 첫 번째 열(자치구 상위 구분) 삭제
 crime.head()
 ```
 
+![첫 번째 열 삭제](/assets/image/lectures/python/16_py_S089_0.png)
+
+*첫 번째 열 삭제*
+
+![5대 범죄 원본 엑셀과 불러온 결과](/assets/image/lectures/python/16_py_S087_0.png)
+
+![5대 범죄 원본 엑셀과 불러온 결과](/assets/image/lectures/python/16_py_S088_0.png)
+
+*5대 범죄 원본 엑셀과 불러온 결과*
+
 > 파일 이름의 숫자는 내려받은 날짜·시각임. 직접 내려받았다면 파일 이름에 맞게 고칠 것
 
 ### 열 이름 변경
@@ -54,12 +64,20 @@ crime.columns = ['구', '발생합계', '검거합계',
 crime.head()
 ```
 
+![열 이름 변경](/assets/image/lectures/python/16_py_S090_0.png)
+
+*열 이름 변경*
+
 ### 행 삭제
 
 ```python
 crime = crime.iloc[4:, :]     # 위쪽 4행(헤더 설명·소계) 삭제
 crime.head()
 ```
+
+![위쪽 4행 삭제](/assets/image/lectures/python/16_py_S091_0.png)
+
+*위쪽 4행 삭제*
 
 > 내려받은 시점에 따라 위쪽 설명 행 수가 다를 수 있음. `crime.head(6)`으로 먼저 확인한 뒤 숫자를 정할 것
 
@@ -70,6 +88,10 @@ crime = crime.set_index('구')
 crime.head()
 ```
 
+![구를 인덱스로 설정](/assets/image/lectures/python/16_py_S092_0.png)
+
+*구를 인덱스로 설정*
+
 ### 정수 변환
 
 ```python
@@ -77,6 +99,12 @@ crime.dtypes                  # 변환 전: object (문자)
 crime = crime.astype('int')
 crime.dtypes                  # 변환 후: int64
 ```
+
+![정수 변환 전후 데이터 타입](/assets/image/lectures/python/16_py_S093_0.png)
+
+![정수 변환 전후 데이터 타입](/assets/image/lectures/python/16_py_S093_1.png)
+
+*정수 변환 전후 데이터 타입*
 
 > 값에 `-`나 쉼표가 섞여 있으면 `astype('int')`가 실패함. 그럴 때는 다음처럼 바꿈
 > ```python
@@ -93,6 +121,10 @@ crime_2021 = pd.concat([crime_occur, crime_arrest], axis=1)   # 옆으로 붙이
 crime_2021.head()
 ```
 
+![발생·검거 병합 결과](/assets/image/lectures/python/16_py_S095_0.png)
+
+*발생·검거 병합 결과*
+
 ## 4. 신고 데이터와 범죄 데이터 병합
 두 데이터 모두 인덱스가 구 이름이므로 **인덱스 기준**으로 합침
 
@@ -102,6 +134,10 @@ df = pd.merge(seoul_2021, crime_2021,
 df.head()
 df.shape    # (25, 18) 예상: 신고 8열 + 발생 5열 + 검거 5열
 ```
+
+![신고 데이터와 범죄 데이터 병합](/assets/image/lectures/python/16_py_S096_0.png)
+
+*신고 데이터와 범죄 데이터 병합*
 
 ### concat vs merge
 
@@ -119,6 +155,10 @@ sns.heatmap(df.corr(numeric_only=True), annot=True, fmt='.2f')
 plt.show()
 ```
 
+![범죄 신고와 발생의 상관관계](/assets/image/lectures/python/16_py_S097_0.png)
+
+*범죄 신고와 발생의 상관관계*
+
 > **수정**: pandas 2.x 대응으로 `numeric_only=True`를 붙였음
 
 **해석**: 다른 신고는 범죄 발생과 관련이 거의 없고, **강도 신고만 범죄 발생과 관련**이 있음
@@ -131,6 +171,10 @@ plt.show()
 sns.pairplot(df)
 plt.show()
 ```
+
+![범죄 신고와 발생의 산점도 행렬](/assets/image/lectures/python/16_py_S098_0.png)
+
+*범죄 신고와 발생의 산점도 행렬*
 
 > 18개 열의 pairplot은 그래프가 324개라 오래 걸림. 관심 있는 열만 골라 그리면 빠름
 > ```python

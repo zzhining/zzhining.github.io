@@ -128,6 +128,10 @@ print(f"BMI: {bmi:.2f}")
 - 기본공제: $10,000
 - 부양가족 1명당 추가공제: $3,000
 
+![Exercise #4 실행 예시](/assets/image/lectures/python/03_py_S025_0.png)
+
+*Exercise #4 실행 예시*
+
 <details markdown="1">
 <summary>정답 예시</summary>
 

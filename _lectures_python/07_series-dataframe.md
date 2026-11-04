@@ -31,6 +31,10 @@ s
 # d    4
 ```
 
+![Series 출력](/assets/image/lectures/python/07_py_S035_0.png)
+
+*Series 출력*
+
 ## 2. DataFrame — 2차원
 행과 열에 레이블이 붙은 **2차원 표**임. 열마다 데이터 타입이 달라도 됨
 

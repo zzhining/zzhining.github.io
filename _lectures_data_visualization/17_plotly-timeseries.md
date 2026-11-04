@@ -32,6 +32,10 @@ fig = px.line(df, x='date', y='GOOG')
 fig.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/17_plotly_S034_0.png)
+
+*실행 결과*
+
 ### 여러 종목 + 눈금 레이블 설정
 
 ```python
@@ -42,13 +46,17 @@ fig.update_xaxes(dtick='M1', tickformat='%b\n%Y')    # 1개월 간격, "Jan\n201
 fig.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/17_plotly_S035_0.png)
+
+*실행 결과*
+
 | 설정 | 의미 |
 |---|---|
 | `dtick='M1'` | 눈금 간격 1개월 (`'M3'`은 분기) |
 | `tickformat='%b\n%Y'` | 월 약칭 + 줄바꿈 + 연도 |
 | `hover_data={'date': '\|%B %d, %Y'}` | 툴팁에 "January 01, 2018" 형식 |
 
-> `y=df.columns`는 `date` 열까지 포함함. 깔끔하게 하려면 `y=df.columns[1:]`처럼 종목 열만 지정
+> `y=df.columns`는 `date` 열까지 포함함. 깔끔하게 하려면 `y=df.columns[1:]`처럼 종목 열만 지정할 것
 
 ## 2. Facetted area — 종목별로 나눠 그리기
 
@@ -57,6 +65,10 @@ df = px.data.stocks(indexed=True) - 1      # 날짜 인덱스, 기준 대비 수
 fig = px.area(df, facet_col='company', facet_col_wrap=2)
 fig.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/17_plotly_S036_0.png)
+
+*실행 결과*
 
 ## 3. Histogram + Scatter — 월평균과 일별 값을 함께
 
@@ -71,6 +83,10 @@ fig.update_layout(bargap=0.1)
 fig.add_trace(go.Scatter(mode='markers', x=df['Date'], y=df['AAPL.Close'], name='daily'))
 fig.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/17_plotly_S038_0.png)
+
+*실행 결과*
 
 > `ticklabelmode='period'`: 눈금 레이블을 구간의 **가운데**에 둠 (월 막대 가운데에 월 이름)
 
@@ -88,6 +104,12 @@ fig = go.Figure(data=[go.Candlestick(x=df['Date'],
                                      close=df['AAPL.Close'])])
 fig.show()
 ```
+
+![실행 결과와 range slider로 기간을 좁힌 화면](/assets/image/lectures/data-visualization/17_plotly_S040_0.png)
+
+![실행 결과와 range slider로 기간을 좁힌 화면](/assets/image/lectures/data-visualization/17_plotly_S040_1.png)
+
+*실행 결과와 range slider로 기간을 좁힌 화면*
 
 - 아래쪽 **range slider**를 움직이면 보이는 기간이 바뀜
 - 필요 없으면 끔: `fig.update_layout(xaxis_rangeslider_visible=False)`
@@ -111,6 +133,10 @@ fig.update_layout(
 )
 fig.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/17_plotly_S042_0.png)
+
+*실행 결과*
 
 | 설정 | 의미 |
 |---|---|

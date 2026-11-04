@@ -32,6 +32,10 @@ fig = px.pie(df, values='tip', names='day')    # day별 tip 합계의 비율
 fig.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/16_plotly_S023_0.png)
+
+*실행 결과*
+
 ### 색상 팔레트 바꾸기
 
 ```python
@@ -39,6 +43,10 @@ fig = px.pie(df, values='tip', names='day',
              color_discrete_sequence=px.colors.sequential.RdBu)
 fig.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/16_plotly_S024_0.png)
+
+*실행 결과*
 
 ### 범주마다 색 지정
 
@@ -50,6 +58,10 @@ fig = px.pie(df, values='tip', names='day', color='day',
                                  'Sun': 'darkblue'})
 fig.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/16_plotly_S025_0.png)
+
+*실행 결과*
 
 ## 2. Pie — Graph Objects
 
@@ -65,6 +77,10 @@ fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
 fig.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/16_plotly_S026_0.png)
+
+*실행 결과*
+
 ### textinfo 설정
 
 ```python
@@ -73,6 +89,10 @@ fig = go.Figure(data=[go.Pie(labels=labels, values=values,
                              insidetextorientation='radial')])  # 글자를 방사형으로
 fig.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/16_plotly_S027_0.png)
+
+*실행 결과*
 
 > `textinfo` 조합: `'label'`, `'value'`, `'percent'`, `'label+value+percent'` 등
 
@@ -83,6 +103,10 @@ fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3)])   # 가운
 fig.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/16_plotly_S028_0.png)
+
+*실행 결과*
+
 ### 조각 분리하기
 
 ```python
@@ -90,6 +114,10 @@ fig = go.Figure(data=[go.Pie(labels=labels, values=values,
                              pull=[0, 0, 0.2, 0])])   # 3번째 조각을 반지름의 20%만큼 빼냄
 fig.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/16_plotly_S029_0.png)
+
+*실행 결과*
 
 ## 3. subplot & scalegroup
 - **subplot**: 화면을 나눠 그래프 여러 개를 그림
@@ -109,6 +137,10 @@ fig.update_layout(title_text='World GDP')
 fig.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/16_plotly_S030_0.png)
+
+*실행 결과*
+
 > 파이 차트는 좌표축이 없어서 `specs`에 `'type': 'domain'`을 지정해야 함
 
 ## 4. Bubble 차트
@@ -122,6 +154,10 @@ fig = go.Figure(data=[go.Scatter(
 ])
 fig.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/16_plotly_S032_0.png)
+
+*실행 결과*
 
 ### 색상·투명도 지정
 
@@ -139,6 +175,10 @@ fig = go.Figure(data=[go.Scatter(
 fig.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/16_plotly_S033_0.png)
+
+*실행 결과*
+
 ### (참고) Express로 버블 차트
 
 ```python
@@ -147,6 +187,10 @@ fig = px.scatter(df, x='gdpPercap', y='lifeExp', size='pop', color='continent',
                  hover_name='country', log_x=True, size_max=60)
 fig.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/16_result_01.png)
+
+*실행 결과*
 
 > 무단횡단 데이터 버블 차트 실습은 [07 문서](/lectures/data-visualization/07_scatter-plot/)를 참고
 

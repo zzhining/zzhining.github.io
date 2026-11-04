@@ -33,11 +33,19 @@ next_post: /lectures/data-visualization/08_distribution/
 | 오른쪽 아래로 내려감 | **음**의 상관관계 |
 | 패턴 없음 | 상관관계 없음 |
 
+![산점도로 본 상관관계 유형](/assets/image/lectures/data-visualization/07_viz_S094_0.png)
+
+*산점도로 본 상관관계 유형*
+
 ```python
 tips = sns.load_dataset('tips')
 sns.scatterplot(data=tips, x='total_bill', y='tip')
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/07_result_01.png)
+
+*실행 결과*
 
 - 데이터가 얼마나 퍼져 있는지, 점들끼리 관련이 있는지 파악하고 **패턴을 빨리 찾는 데** 도움이 됨
 - **점이 많을 때** 특히 유용하고, 점이 적으면 막대그래프나 표가 더 나을 수 있음
@@ -54,6 +62,12 @@ sns.lmplot(data=tips, x='total_bill', y='tip', hue='smoker')   # 그룹별 회�
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/07_result_02.png)
+
+![실행 결과](/assets/image/lectures/data-visualization/07_result_03.png)
+
+*실행 결과*
+
 ### 예시 2. 여러 속성 중 상관관계 있는 변수 빨리 찾기
 `mpg`(연비)에 영향을 주는 변수를 봄
 
@@ -64,6 +78,10 @@ sns.pairplot(mpg, x_vars=['displacement', 'horsepower', 'weight', 'acceleration'
              plot_kws={'scatter_kws': {'alpha': 0.3}})
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/07_result_04.png)
+
+*실행 결과*
 
 ### 회귀선 유의사항 — 앤스컴 콰르텟 (Anscombe's quartet)
 **같은 회귀선이 그려져도 원래 데이터의 분포는 전혀 다를 수 있음.**
@@ -76,6 +94,10 @@ plt.show()
 
 anscombe.groupby('dataset')[['x', 'y']].agg(['mean', 'std'])   # 요약 통계는 거의 같음
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/07_result_05.png)
+
+*실행 결과*
 
 | 데이터셋 | 실제 모양 |
 |---|---|
@@ -95,6 +117,10 @@ sns.residplot(x=x, y=y, lowess=True, line_kws=dict(color='r'))
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/07_result_06.png)
+
+*실행 결과*
+
 > 잔차가 0 주변에 고르게 흩어져 있으면 선형 모델이 적절함
 > `lowess=True`(추세 곡선)는 `statsmodels`가 필요함. Colab에는 기본 설치되어 있고, 다른 환경에서는 `!pip install statsmodels`로 설치함
 
@@ -108,6 +134,10 @@ sns.scatterplot(data=penguins, x='flipper_length_mm', y='bill_length_mm', hue='s
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/07_result_07.png)
+
+*실행 결과*
+
 ### 색 + 모양으로 구분
 
 ```python
@@ -115,6 +145,14 @@ sns.scatterplot(data=penguins, x='flipper_length_mm', y='bill_length_mm',
                 hue='species', style='sex', s=60)
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/07_result_08.png)
+
+*실행 결과*
+
+![색과 모양으로 구분한 산점도 예시](/assets/image/lectures/data-visualization/07_viz_S100_2.png)
+
+*색과 모양으로 구분한 산점도 예시*
 
 ### 예시 4. 크기로 구분 — 버블 차트
 - 크기를 갖는 변수는 **점의 크기**로 나타냄
@@ -126,6 +164,14 @@ sns.scatterplot(data=mpg, x='horsepower', y='mpg', hue='origin',
                 size='weight', sizes=(20, 300), alpha=0.5)
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/07_result_09.png)
+
+*실행 결과*
+
+![버블 차트 예시](/assets/image/lectures/data-visualization/07_viz_S101_2.png)
+
+*버블 차트 예시*
 
 ### 실습: 2015 무단횡단 버블 차트
 > 데이터 준비: [10 문서 4절](/lectures/data-visualization/10_spatial-viz/#data-prep)
@@ -152,6 +198,12 @@ sns.swarmplot(data=tips, x='day', y='total_bill', hue='sex')     # 점이 겹치
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/07_result_10.png)
+
+![실행 결과](/assets/image/lectures/data-visualization/07_result_11.png)
+
+*실행 결과*
+
 ## 6. 여러 분포를 한 번에
 ### 산점도 행렬 (pairplot)
 모든 변수 쌍의 산점도와, 변수별 분포(대각선)를 한눈에 봄 (seaborn 예제: scatterplot_matrix)
@@ -160,6 +212,10 @@ plt.show()
 sns.pairplot(penguins, hue='species')
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/07_result_12.png)
+
+*실행 결과*
 
 ### 산점도 + 박스플롯 (plotly marginal plot)
 
@@ -170,6 +226,10 @@ fig = px.scatter(df, x='sepal_length', y='sepal_width', color='species',
 fig.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/07_result_13.png)
+
+*실행 결과*
+
 ### 산점도 + 히스토그램 (jointplot)
 
 ```python
@@ -178,6 +238,12 @@ plt.show()
 sns.jointplot(data=penguins, x='flipper_length_mm', y='bill_length_mm', kind='reg')
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/07_result_14.png)
+
+![실행 결과](/assets/image/lectures/data-visualization/07_result_15.png)
+
+*실행 결과*
 
 ### 산점도 + 히트맵 (seaborn 예제: layered_bivariate_plot)
 점이 **빽빽한 곳은 히트맵**으로, **드문 곳은 점**으로 보여 줌
@@ -193,6 +259,10 @@ sns.histplot(x=x, y=y, bins=50, pthresh=.1, cmap='mako')
 sns.kdeplot(x=x, y=y, levels=5, color='w', linewidths=1)
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/07_result_16.png)
+
+*실행 결과*
 
 ## 정리
 

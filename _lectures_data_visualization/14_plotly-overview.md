@@ -22,6 +22,10 @@ next_post: /lectures/data-visualization/15_plotly-express/
 - Colab에는 기본 설치되어 있고, `fig.show()`를 하면 셀 결과에 바로 나타남
 - 공식 문서: https://plotly.com/python/
 
+![Plotly 차트 갤러리](/assets/image/lectures/data-visualization/14_plotly_S003_0.png)
+
+*Plotly 차트 갤러리*
+
 ## 2. 주요 구성
 
 | 서브모듈 | 설명 |
@@ -58,6 +62,10 @@ fig.show()
 - 클릭으로 조작하는(point & click) 인터페이스를 줌
 - 공식 문서: https://dash.plotly.com/
 
+![Dash 대시보드 예시](/assets/image/lectures/data-visualization/14_plotly_S005_0.png)
+
+*Dash 대시보드 예시*
+
 ### 예제: petal_width 범위 슬라이더
 슬라이더를 움직이면 그 범위의 데이터만 산점도에 동적으로 표시됨
 
@@ -93,6 +101,12 @@ def update_bar_chart(slider_range):
 
 app.run(jupyter_mode='inline')      # Colab 셀 안에 앱 표시
 ```
+
+![슬라이더 범위에 따라 바뀌는 산점도](/assets/image/lectures/data-visualization/14_plotly_S006_0.png)
+
+![슬라이더 범위에 따라 바뀌는 산점도](/assets/image/lectures/data-visualization/14_plotly_S007_0.png)
+
+*슬라이더 범위에 따라 바뀌는 산점도*
 
 > Colab에서 그대로 실행되도록 레이아웃과 실행 코드를 모두 포함했음
 > - Dash 2.11 이상은 `jupyter_mode='inline'`으로 노트북 안에 바로 표시됨. 예전의 `jupyter-dash` 패키지는 필요 없음

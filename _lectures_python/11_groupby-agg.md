@@ -50,6 +50,10 @@ df.groupby('dept').agg({'salary': ['mean', 'max'],
 
 > 예시 `flights[['dep_delay','arr_delay']].agg(['min','mean','max'])`도 같은 방식임
 
+![flights 데이터의 agg() 결과](/assets/image/lectures/python/11_py_S059_0.png)
+
+*flights 데이터의 agg() 결과*
+
 ## 4. 반복 (iterrows)
 한 행씩 꺼내 처리함. `for` 문법은 [05 문서](/lectures/python/05_for-loop/)를 참고
 

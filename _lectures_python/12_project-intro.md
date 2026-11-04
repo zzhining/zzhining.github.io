@@ -24,6 +24,10 @@ next_post: /lectures/python/13_report-preprocessing/
   - `범죄 빈발지 데이터(행정동단위).csv` — 본 데이터 (**헤더 없음**)
   - `범죄 빈발지 데이터(행정동단위)_컬럼정의서.xls` — 열 정의
 
+![신고 빈발지 원본 CSV (헤더 없음)](/assets/image/lectures/python/12_py_S061_0.png)
+
+*신고 빈발지 원본 CSV (헤더 없음)*
+
 ### 컬럼정의서
 
 | 순서 | 영문명 | 한글명 | 타입 |
@@ -98,6 +102,10 @@ plt.title('한글 테스트')
 plt.plot([1, 2, 3], [-1, 0, 1])
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/python/12_result_01.png)
+
+*실행 결과*
 
 > 런타임이 끊기면 설치한 폰트도 사라짐. **새 세션마다 이 셀을 먼저 실행**할 것
 

@@ -32,7 +32,6 @@ import plotly.express as px
 | `px.box` | 박스 플롯 | `px.area` | 영역 그래프 |
 | `px.histogram` | 히스토그램 | `px.choropleth` | 단계구분도 |
 
-
 ## 2. 산점도
 ### 리스트로
 
@@ -40,6 +39,10 @@ import plotly.express as px
 fig = px.scatter(x=[0, 1, 2, 3, 4], y=[0, 1, 4, 9, 16])
 fig.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/15_plotly_S010_0.png)
+
+*실행 결과*
 
 ### DataFrame + 색·크기·툴팁
 
@@ -51,6 +54,10 @@ fig = px.scatter(df, x='sepal_width', y='sepal_length',
 fig.show()
 ```
 
+![실행 결과 (툴팁 표시)](/assets/image/lectures/data-visualization/15_plotly_S011_0.png)
+
+*실행 결과 (툴팁 표시)*
+
 ### 색 + 모양
 
 ```python
@@ -58,6 +65,10 @@ fig = px.scatter(df, x='sepal_width', y='sepal_length',
                  color='species', symbol='species')
 fig.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/15_plotly_S012_0.png)
+
+*실행 결과*
 
 ## 3. 선 그래프
 
@@ -67,6 +78,10 @@ fig = px.line(df, x='year', y='lifeExp', color='country')
 fig.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/15_plotly_S013_0.png)
+
+*실행 결과*
+
 ## 4. 막대 그래프
 ### 기본
 
@@ -75,6 +90,10 @@ data_canada = px.data.gapminder().query("country == 'Canada'")
 fig = px.bar(data_canada, x='year', y='pop')
 fig.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/15_plotly_S014_0.png)
+
+*실행 결과*
 
 ### long-form vs wide-form
 
@@ -90,12 +109,24 @@ fig = px.bar(long_df, x='nation', y='count', color='medal', title='Long-Form Inp
 fig.show()
 ```
 
+![long_df와 실행 결과](/assets/image/lectures/data-visualization/15_plotly_S015_1.png)
+
+![long_df와 실행 결과](/assets/image/lectures/data-visualization/15_plotly_S015_0.png)
+
+*long_df와 실행 결과*
+
 ```python
 wide_df = px.data.medals_wide()
 wide_df
 fig = px.bar(wide_df, x='nation', y=['gold', 'silver', 'bronze'], title='Wide-Form Input')
 fig.show()
 ```
+
+![wide_df와 실행 결과](/assets/image/lectures/data-visualization/15_plotly_S016_1.png)
+
+![wide_df와 실행 결과](/assets/image/lectures/data-visualization/15_plotly_S016_0.png)
+
+*wide_df와 실행 결과*
 
 > 두 그래프는 같음. wide-form은 `y=`에 열 목록을 주면 되고, 서로 바꾸려면 `melt()`(wide → long)와 `pivot()`(long → wide)을 씀
 
@@ -114,6 +145,14 @@ fig = px.histogram(df, x='sex', y='total_bill',
 fig.show()
 ```
 
+![실행 결과 (평균)](/assets/image/lectures/data-visualization/15_plotly_S018_0.png)
+
+*실행 결과 (평균)*
+
+![실행 결과 (합계)](/assets/image/lectures/data-visualization/15_plotly_S017_0.png)
+
+*실행 결과 (합계)*
+
 | `barmode` | 모양 |
 |---|---|
 | `'relative'` (기본) | 쌓기 |
@@ -129,6 +168,10 @@ fig = px.bar(df, x='medal', y='count', color='nation', text_auto=True)
 fig.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/15_plotly_S019_0.png)
+
+*실행 결과*
+
 > `text_auto=True`는 **막대 안에 값**을 표시함. `False`로 바꾸면 막대 위의 값만 사라지고, 축 레이블은 그대로임
 
 ### 텍스트 크기·위치·각도 조절
@@ -142,6 +185,10 @@ fig.update_traces(textfont_size=12, textangle=0,
 fig.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/15_plotly_S020_0.png)
+
+*실행 결과*
+
 ### 패턴 표시
 흑백으로 인쇄하거나 색 구분이 어려운 사람을 위해 색과 함께 **무늬**로도 구분함
 
@@ -151,6 +198,10 @@ fig = px.bar(df, x='medal', y='count', color='nation',
              pattern_shape='nation', pattern_shape_sequence=['.', 'x', '+'])
 fig.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/15_plotly_S021_0.png)
+
+*실행 결과*
 
 ## 6. 그래프 공통 설정
 

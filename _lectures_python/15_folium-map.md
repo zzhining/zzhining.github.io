@@ -40,6 +40,10 @@ seoul_geo = json.loads(response.content)
 seoul_geo['features'][0]['properties']   # {'name': '강동구', ...} 형태 확인
 ```
 
+![서울 구 경계 GeoJSON](/assets/image/lectures/python/15_py_S072_0.png)
+
+*서울 구 경계 GeoJSON*
+
 ## 3. 시군구를 열로 바꾸기
 Choropleth는 **열 이름**으로 데이터를 연결하므로 인덱스를 열로 되돌림
 
@@ -47,6 +51,10 @@ Choropleth는 **열 이름**으로 데이터를 연결하므로 인덱스를 열
 seoul_2021_gu = seoul_2021.reset_index()
 seoul_2021_gu.head()
 ```
+
+![인덱스를 열로 되돌린 결과](/assets/image/lectures/python/15_py_S073_0.png)
+
+*인덱스를 열로 되돌린 결과*
 
 ## 4. 단계구분도 (Choropleth)
 값의 크기를 색 농도로 보여 줌
@@ -64,6 +72,10 @@ folium.Choropleth(
 m
 ```
 
+![폭력 신고 수 단계구분도](/assets/image/lectures/python/15_py_S075_0.png)
+
+*폭력 신고 수 단계구분도*
+
 > `시군구` 값과 GeoJSON의 `name` 값이 **글자까지 똑같아야** 색이 칠해짐
 
 ## 5. 행정구역별 위경도 처리
@@ -74,12 +86,20 @@ latlng = pd.read_excel('행정구역별_위경도_좌표.xlsx')
 latlng.head()
 ```
 
+![행정구역별 위경도 원본](/assets/image/lectures/python/15_py_S076_0.png)
+
+*행정구역별 위경도 원본*
+
 ### 서울시 전체 행 제거
 
 ```python
 latlng = latlng.iloc[1:, :]     # 첫 행(서울특별시 전체) 제거
 latlng.head()
 ```
+
+![서울시 전체 행 제거](/assets/image/lectures/python/15_py_S076_1.png)
+
+*서울시 전체 행 제거*
 
 ### 구를 대표하는 위경도만 추출
 읍면동 값이 비어 있는 행이 구 대표 좌표임
@@ -90,6 +110,10 @@ latlng = latlng[['시군구', '위도', '경도']]
 latlng.head()
 ```
 
+![구 대표 위경도](/assets/image/lectures/python/15_py_S076_2.png)
+
+*구 대표 위경도*
+
 ## 6. 원(Circle)을 이용한 지도
 ### 신고 데이터와 위경도 병합
 
@@ -97,6 +121,10 @@ latlng.head()
 seoul_2021_gu = pd.merge(seoul_2021_gu, latlng, on='시군구', how='inner')
 seoul_2021_gu.head()
 ```
+
+![신고 데이터와 위경도 병합](/assets/image/lectures/python/15_py_S078_0.png)
+
+*신고 데이터와 위경도 병합*
 
 ### 폭력 신고 수를 원 크기로
 
@@ -112,6 +140,10 @@ for i in range(len(seoul_2021_gu)):
     ).add_to(m)
 m
 ```
+
+![폭력 신고 수를 원 크기로 표시한 지도](/assets/image/lectures/python/15_py_S079_0.png)
+
+*폭력 신고 수를 원 크기로 표시한 지도*
 
 > `merge` 뒤 인덱스가 0부터 다시 매겨지므로 `[i]`로 접근할 수 있음. 같은 코드를 `for _, row in seoul_2021_gu.iterrows():`로 쓰면 인덱스 걱정이 없음
 

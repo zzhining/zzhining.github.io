@@ -26,6 +26,12 @@ next_post: /lectures/data-visualization/10_spatial-viz/
 - 키워드를 보이게 하면 잘 드러나지 않던 관계와 추세가 보임
 - 사례: [Top 500 Passwords Visualized](https://informationisbeautiful.net/visualizations/top-500-passwords-visualized/)
 
+![워드클라우드 예시](/assets/image/lectures/data-visualization/09_viz_S121_0.png)
+
+![워드클라우드 예시](/assets/image/lectures/data-visualization/09_viz_S122_0.png)
+
+*워드클라우드 예시*
+
 ### 생성 시 설정값
 
 | 설정 | 의미 |
@@ -74,6 +80,10 @@ plt.axis('off')
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/09_result_01.png)
+
+*실행 결과*
+
 > 실제 한국어 문서는 조사가 붙어 있어서(예: '데이터를', '데이터는') 위처럼 단순히 나누면 같은 단어가 따로 셈. 형태소 분석기(예: `kiwipiepy`)로 **명사만 뽑은 뒤** 빈도를 세면 결과가 훨씬 좋아짐
 > ```python
 > !pip install -q kiwipiepy
@@ -89,8 +99,13 @@ plt.show()
 top = pd.Series(freq).sort_values(ascending=False).head(10)
 sns.barplot(x=top.values, y=top.index, color='steelblue')
 plt.xlabel('빈도')
+plt.ylabel('')
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/09_result_02.png)
+
+*실행 결과*
 
 ## 3. 워드 임베딩 프로젝터
 - **워드 임베딩**: 단어를 의미 정보까지 담은 **벡터**로 바꾸는 것임 (예: Word2Vec)
@@ -98,6 +113,14 @@ plt.show()
 - 수백 차원 벡터를 PCA, t-SNE 같은 방법으로 2D/3D로 줄여 시각화함
 - 도구: [TensorFlow Embedding Projector](https://projector.tensorflow.org/) — 브라우저에서 바로 Word2Vec 예제를 돌려 볼 수 있음
 - 사례: [Book Embedding](https://towardsdatascience.com/neural-network-embeddings-explained-4d028e6f0526) — 위키백과 책 정보를 임베딩해, 장르가 비슷한 책끼리 모이는 것을 보여 줌
+
+![Book Embedding](/assets/image/lectures/data-visualization/09_viz_S125_0.png)
+
+*Book Embedding*
+
+![Embedding Projector](/assets/image/lectures/data-visualization/09_viz_S124_0.png)
+
+*Embedding Projector*
 
 ## 정리
 

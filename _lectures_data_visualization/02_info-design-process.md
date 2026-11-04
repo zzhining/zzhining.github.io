@@ -34,6 +34,12 @@ next_post: /lectures/data-visualization/03_viz-tools/
 - 신문, 잡지, 정부 홍보물, 기업 제품 홍보 등에 쓰임
 - 참고: [easel.ly](https://www.easel.ly/), [Information is Beautiful](https://informationisbeautiful.net/)
 
+![인포그래픽 사례](/assets/image/lectures/data-visualization/02_viz_S020_0.png)
+
+![인포그래픽 사례](/assets/image/lectures/data-visualization/02_viz_S020_1.png)
+
+*인포그래픽 사례*
+
 ## 3. 시각적 이해의 위계 (DIKW)
 
 | 단계 | 상태 | 설명 | 전환 방법 |
@@ -59,6 +65,10 @@ next_post: /lectures/data-visualization/03_viz-tools/
 | 데이터 배열 | **LATCH** 기준으로 배열 |
 | 데이터 재배열 | 보는 사람이 알아보기 쉽게 패턴을 만듦 |
 
+![정보 디자인 프로세스](/assets/image/lectures/data-visualization/02_viz_S024_0.png)
+
+*정보 디자인 프로세스*
+
 **LATCH**: 정보를 정리하는 5가지 기준
 
 | 기준 | 예 |
@@ -75,6 +85,12 @@ next_post: /lectures/data-visualization/03_viz-tools/
 - 도구가 주는 그래프를 **왜, 어떤 이유로, 어떻게** 쓰는지가 중요함
 - 시각화 유형: **시간, 분포, 관계, 비교, 공간** 시각화 → [11 차트 선택 가이드](/lectures/data-visualization/11_chart-selection/)
 - 같은 목적도 방법은 여러 가지임. 예를 들어 친구에게 생일 축하를 받는 방법이 문자, 전화, 카드로 다르듯, 전달할 내용에 맞는 형태를 고름
+
+![같은 데이터(생일 축하 메시지 수단)를 다르게 표현한 예](/assets/image/lectures/data-visualization/02_viz_S026_0.png)
+
+![같은 데이터(생일 축하 메시지 수단)를 다르게 표현한 예](/assets/image/lectures/data-visualization/02_viz_S026_1.png)
+
+*같은 데이터(생일 축하 메시지 수단)를 다르게 표현한 예*
 
 ### ③ 시각적 표현 — 그래프 다듬기
 - 시각적으로 마무리하는 단계임. 의도를 정확히 전달하도록 그래픽 요소를 더하고, 표현을 다듬으며 실험함
@@ -94,6 +110,10 @@ next_post: /lectures/data-visualization/03_viz-tools/
 
 출처: [Axis Maps — Visual Variables](https://www.axismaps.com/guide/general/visual-variables/)
 
+![베르탱의 시각 변수 (Bertin's Visual Variables)](/assets/image/lectures/data-visualization/02_viz_S028_0.png)
+
+*베르탱의 시각 변수 (Bertin's Visual Variables)*
+
 **다듬기 예**: 배경과 범례를 없애고 수치를 그래프 안에 직접 쓰면 표현력이 높아짐
 
 ```python
@@ -103,6 +123,12 @@ sns.despine(left=True)                  # 테두리 제거
 ax.set(yticks=[])                       # y축 눈금 제거
 plt.show()
 ```
+
+![다듬기 전과 후](/assets/image/lectures/data-visualization/02_viz_S029_0.png)
+
+![다듬기 전과 후](/assets/image/lectures/data-visualization/02_viz_S029_1.png)
+
+*다듬기 전과 후*
 
 ## 5. 좋은 데이터 시각화란
 - **인사이트를 쉽게 얻을 수 있어야** 함

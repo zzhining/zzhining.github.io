@@ -26,6 +26,10 @@ print(value)
 
 > 숫자를 입력해도 결과는 문자열임. 계산에 쓰려면 `int()`나 `float()`으로 바꿔야 함 ([03 문서](/lectures/python/03_numbers-strings-variables/))
 
+![input() 실행 결과](/assets/image/lectures/python/02_py_S012_0.png)
+
+*input() 실행 결과*
+
 ## 2. print — 출력 함수
 - 가장 간단한 출력 방법임. 넘긴 값을 문자열로 바꿔 화면에 씀
 - 쉼표로 여러 값을 나열하면 공백으로 이어서 출력함
@@ -35,8 +39,12 @@ print("Hello, Python!")
 print("Python is really a great language,", "isn't it?")
 ```
 
+![print() 실행 결과](/assets/image/lectures/python/02_py_S013_0.png)
+
+*print() 실행 결과*
+
 ## 3. 여러 줄 출력
-큰따옴표 세 개(`"""`)나 작은따옴표 세 개(`'''`)로 여러 줄 문자열을 만듦
+큰따옴표 세 개(`"""`)나 작은따옴표 세 개(`'''`)로 여러 줄 문자열을 만듬
 
 ```python
 a = """Lorem ipsum dolor sit amet,
@@ -59,6 +67,10 @@ print(b)
 # 이 줄 전체가 주석입니다
 print("Hello")  # 코드 뒤에도 주석을 달 수 있습니다
 ```
+
+![# 주석](/assets/image/lectures/python/02_py_S015_0.png)
+
+*# 주석*
 
 > Colab에서는 `Ctrl + /`로 여러 줄을 한 번에 주석 처리할 수 있음
 
@@ -89,6 +101,10 @@ Twinkle, twinkle, little star,
 Twinkle, twinkle, little star,
 	How I wonder what you are!
 ```
+
+![Exercise #1 출력 결과](/assets/image/lectures/python/02_py_S017_0.png)
+
+*Exercise #1 출력 결과*
 
 <details markdown="1">
 <summary>정답 예시</summary>

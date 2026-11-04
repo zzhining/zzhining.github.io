@@ -30,6 +30,10 @@ next_post: /lectures/python/02_io-syntax/
 - 기본 배포판(표준 라이브러리)에 많은 모듈이 들어 있음
 - 1991년에 처음 공개되었음
 
+![python.org](/assets/image/lectures/python/01_py_S004_0.png)
+
+*python.org*
+
 ## 2. 라이브러리 (Library / Module / Package)
 - 오픈소스 커뮤니티가 만든 **쓸모 있는 도구 모음**임
 - 필요한 기능을 직접 만들지 않고 `import`해서 씀

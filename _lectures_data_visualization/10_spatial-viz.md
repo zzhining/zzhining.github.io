@@ -23,6 +23,14 @@ next_post: /lectures/data-visualization/11_chart-selection/
 - 사례: 서울시 동대문구 안심식당 현황
 - **지오코딩(Geocoding)**: 주소나 지명(산, 호수 이름 등)으로 **위도·경도 좌표**를 얻는 것임. 얻은 좌표를 레이어 하나 이상으로 구성해 시각화함
 
+![지오코딩한 좌표를 지도에 표시한 예](/assets/image/lectures/data-visualization/10_viz_S128_0.png)
+
+*지오코딩한 좌표를 지도에 표시한 예*
+
+![서울시 동대문구 안심식당 현황](/assets/image/lectures/data-visualization/10_viz_S127_0.png)
+
+*서울시 동대문구 안심식당 현황*
+
 ## 2. 지도 유형
 
 | 유형 | 설명 | folium/plotly |
@@ -32,6 +40,14 @@ next_post: /lectures/data-visualization/11_chart-selection/
 | **카토그램** (변량비례도, cartogram) | 값에 따라 지역의 **면적을 왜곡**함. 값이 큰 지역이 크게 보임. 땅은 크지만 값은 작은 지역 때문에 생기는 착시를 보정 | (전용 도구 필요) |
 | **Flow Map** | 이동을 화살표로 표시. 화살표 방향은 이동 방향, 너비는 양 | `folium.PolyLine`, `plotly go.Scattergeo` |
 | **히트맵** | 점의 밀도를 색으로 표시 | `folium.plugins.HeatMap` |
+
+![단계구분도, 카토그램, Flow Map](/assets/image/lectures/data-visualization/10_viz_S129_0.png)
+
+![단계구분도, 카토그램, Flow Map](/assets/image/lectures/data-visualization/10_viz_S130_0.png)
+
+![단계구분도, 카토그램, Flow Map](/assets/image/lectures/data-visualization/10_viz_S131_1.png)
+
+*단계구분도, 카토그램, Flow Map*
 
 ## 3. 실습 데이터: 2015 무단횡단 사고다발지
 
@@ -44,6 +60,10 @@ next_post: /lectures/data-visualization/11_chart-selection/
 | 발생건수, 사상자수, 사망자수, 중상자수, 경상자수, 부상신고자수 | 사고 지표 |
 | 경도, 위도 | 다발지 중심 좌표 |
 | 다발지역폴리곤 | 다발지 영역 (GeoJSON 문자열) |
+
+![2015 무단횡단 사고다발지 원본 데이터](/assets/image/lectures/data-visualization/10_viz_S132_0.png)
+
+*2015 무단횡단 사고다발지 원본 데이터*
 
 > 출처: 도로교통공단 교통사고분석시스템(TAAS) 사고다발지역 데이터. 파일 이름과 열 이름은 내려받은 버전에 따라 다를 수 있으니 `jaywalk.columns`로 먼저 확인
 
@@ -144,6 +164,12 @@ m.save('jaywalk_map.html')        # 브라우저에서 열 수 있는 HTML로 �
 
 ### 결과 해석
 **서울과 수도권**에서 무단횡단 사고가 가장 많이 났고, 그다음은 **부산, 울산, 대구** 등 대도시임
+
+![지도 레이어 실습 결과 (Layer 1+2, Layer 1 숨김)](/assets/image/lectures/data-visualization/10_viz_S139_0.png)
+
+![지도 레이어 실습 결과 (Layer 1+2, Layer 1 숨김)](/assets/image/lectures/data-visualization/10_viz_S141_0.png)
+
+*지도 레이어 실습 결과 (Layer 1+2, Layer 1 숨김)*
 
 ```python
 sido_sum.sort_values('발생건수', ascending=False).head(10)   # 수치로 확인

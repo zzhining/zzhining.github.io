@@ -31,6 +31,12 @@ EDA에서 하는 일
 | 통계 지표 기반 | 개수, 평균, 표준편차, 최솟값, 사분위수, 최댓값 |
 | 시각화 기반 | 선 그래프, 막대 그래프, 히스토그램, 파이 차트, 산점도, 박스 플롯 등 |
 
+![시각화 기반 데이터 탐색 예시](/assets/image/lectures/data-visualization/12_viz_S152_0.png)
+
+![시각화 기반 데이터 탐색 예시](/assets/image/lectures/data-visualization/12_viz_S152_1.png)
+
+*시각화 기반 데이터 탐색 예시*
+
 ## 2. 실습 데이터: 은나노 생성 실험
 
 | 열 | 의미 |
@@ -83,6 +89,10 @@ plt.show()
 ```
 
 - 예(전체 데이터): temp는 25~200 사이에 퍼져 있고, source는 0.25~0.35 값이 많음
+
+![은나노 전체 데이터의 열별 히스토그램](/assets/image/lectures/data-visualization/12_viz_S155_0.png)
+
+*은나노 전체 데이터의 열별 히스토그램*
 
 ```python
 # 이상치 확인: 박스 플롯 (단위가 달라 표준화한 뒤 비교)

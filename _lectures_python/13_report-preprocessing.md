@@ -27,6 +27,10 @@ col_lst = columns.컬럼한글명.tolist()     # 리스트로 바꾸기
 col_lst
 ```
 
+![컬럼정의서에서 가져온 열 이름 리스트](/assets/image/lectures/python/13_py_S064_0.png)
+
+*컬럼정의서에서 가져온 열 이름 리스트*
+
 > `.xls`(구 엑셀 형식)를 읽으려면 `xlrd` 패키지가 필요함. 에러가 나면 `!pip install -q xlrd`를 먼저 실행
 
 ### 신고 빈발지 데이터에 열 이름 붙이기
@@ -38,6 +42,10 @@ report.columns = col_lst
 report.head()
 ```
 
+![열 이름을 붙인 신고 데이터](/assets/image/lectures/python/13_py_S065_0.png)
+
+*열 이름을 붙인 신고 데이터*
+
 ## 2. 조건에 따른 데이터 필터링
 서울 데이터만 뽑음
 
@@ -46,6 +54,10 @@ seoul = report[report.시도 == '서울특별시']
 seoul.head()
 ```
 
+![서울 데이터만 추출](/assets/image/lectures/python/13_py_S066_0.png)
+
+*서울 데이터만 추출*
+
 ## 3. 인덱스 지정
 시군구(구 이름)를 인덱스로 씀
 
@@ -53,6 +65,10 @@ seoul.head()
 seoul = seoul.set_index('시군구')
 seoul.head()
 ```
+
+![시군구를 인덱스로 지정](/assets/image/lectures/python/13_py_S067_0.png)
+
+*시군구를 인덱스로 지정*
 
 > `seoul.set_index('시군구', inplace=True)` 대신 다시 대입하는 방식을 썼음. 필터링 결과에 `inplace=True`를 쓰면 `SettingWithCopyWarning`이 날 수 있기 때문임
 
@@ -63,6 +79,10 @@ seoul.head()
 seoul_2021 = seoul.drop(['신고년도', '시도', ' 총 신고수'], axis=1)  # ' 총 신고수' 앞 공백 주의
 seoul_2021.head()
 ```
+
+![불필요한 열 제거 결과](/assets/image/lectures/python/13_py_S068_0.png)
+
+*불필요한 열 제거 결과*
 
 - `axis=1`: 열 방향으로 삭제 (`axis=0`은 행)
 - 남는 열: 8개 신고 종류 (가정폭력 ~ 폭력)

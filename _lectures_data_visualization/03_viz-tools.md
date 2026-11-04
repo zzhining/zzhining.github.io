@@ -26,6 +26,13 @@ next_post: /lectures/data-visualization/04_line-chart/
 | **Embedding Projector** | 단어 임베딩 벡터를 2D/3D로 시각화 (텐서플로) | [projector.tensorflow.org](https://projector.tensorflow.org/) |
 | **BigZami (빅재미)** | 블록 기반 데이터 분석 도구, 막대·선·지도·워드클라우드 | [bigzami.com](https://www.bigzami.com/) |
 
+![Tableau, Embedding Projector, 빅재미 화면](/assets/image/lectures/data-visualization/03_viz_S034_0.png)
+
+![Tableau, Embedding Projector, 빅재미 화면](/assets/image/lectures/data-visualization/03_viz_S038_0.png)
+
+![Tableau, Embedding Projector, 빅재미 화면](/assets/image/lectures/data-visualization/03_viz_S039_0.png)
+
+*Tableau, Embedding Projector, 빅재미 화면*
 
 ## 2. 프로그래밍 기반 시각화 도구
 
@@ -38,6 +45,14 @@ next_post: /lectures/data-visualization/04_line-chart/
 | **plotly** | Python 등 | 인터랙티브 그래프 (확대, 툴팁, 슬라이더) |
 | **folium** | Python | OpenStreetMap 지도 + Leaflet.js로 위치 정보 시각화 (자바스크립트 기반이라 상호작용 가능) |
 
+![D3.js, R ggplot2, seaborn 갤러리](/assets/image/lectures/data-visualization/03_viz_S035_0.png)
+
+![D3.js, R ggplot2, seaborn 갤러리](/assets/image/lectures/data-visualization/03_viz_S040_0.png)
+
+![D3.js, R ggplot2, seaborn 갤러리](/assets/image/lectures/data-visualization/03_viz_S041_0.png)
+
+*D3.js, R ggplot2, seaborn 갤러리*
+
 > D3.js는 코드를 직접 짜야 하는 자바스크립트 라이브러리이므로 프로그래밍 기반 도구로 분류함
 
 ## 3. 기타 시각화 도구
@@ -48,6 +63,16 @@ next_post: /lectures/data-visualization/04_line-chart/
 | **Looker Studio** (구 Google Data Studio) | 데이터 커넥터(구글 시트, YouTube, Google Analytics, BigQuery, Cloud SQL), 변환, 시각화, 공유·공동 작업 |
 | **Excel** | 데이터와 차트 유형만 고르면 시각화. 추천 차트, 스타일, 색상 팔레트 제공 |
 | **OpenHeatMap** | 스프레드시트 데이터를 올려 지도를 만드는 웹 도구 |
+
+![QGIS, Looker Studio, Excel, OpenHeatMap](/assets/image/lectures/data-visualization/03_viz_S043_0.jpg)
+
+![QGIS, Looker Studio, Excel, OpenHeatMap](/assets/image/lectures/data-visualization/03_viz_S044_0.png)
+
+![QGIS, Looker Studio, Excel, OpenHeatMap](/assets/image/lectures/data-visualization/03_viz_S045_0.jpg)
+
+![QGIS, Looker Studio, Excel, OpenHeatMap](/assets/image/lectures/data-visualization/03_viz_S046_1.png)
+
+*QGIS, Looker Studio, Excel, OpenHeatMap*
 
 > **수정**: Google Data Studio는 2022년에 **Looker Studio**로 이름이 바뀌었음
 > OpenHeatMap 같은 소규모 웹 도구는 서비스가 바뀌거나 끝날 수 있으니, 수업 전에 접속되는지 확인

@@ -26,6 +26,14 @@ next_post: /lectures/data-visualization/05_bar-chart/
   - **선분**: 점을 이은 선. 점 사이의 변화 추이를 보여 줌
 - 생활 속 예: 코스피·S&P500 차트, 시간별 기온, 일별 판매량
 
+![생활 속 선 그래프 (코스피, S&P500, 일별 판매량)](/assets/image/lectures/data-visualization/04_viz_S048_0.png)
+
+![생활 속 선 그래프 (코스피, S&P500, 일별 판매량)](/assets/image/lectures/data-visualization/04_viz_S049_0.png)
+
+![생활 속 선 그래프 (코스피, S&P500, 일별 판매량)](/assets/image/lectures/data-visualization/04_viz_S048_2.png)
+
+*생활 속 선 그래프 (코스피, S&P500, 일별 판매량)*
+
 ## 2. 기본 선 그래프
 ### 예시 1. 시간에 따른 값
 
@@ -38,6 +46,10 @@ plt.title('1960년 월별 탑승객 수')
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/04_result_01.png)
+
+*실행 결과*
+
 ### 예시 2. 색상·마커·선 유형으로 구분
 
 ```python
@@ -48,6 +60,10 @@ sns.lineplot(data=fmri, x='timepoint', y='signal',
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/04_result_02.png)
+
+*실행 결과*
+
 ### 예시 3. 한 시점에 값이 여러 개일 때 → 면(신뢰구간)으로 표시
 
 ```python
@@ -57,6 +73,12 @@ plt.show()
 sns.lineplot(data=flights, x='year', y='passengers', errorbar='sd')   # 표준편차 범위로
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/04_result_03.png)
+
+![실행 결과](/assets/image/lectures/data-visualization/04_result_04.png)
+
+*실행 결과*
 
 > `errorbar=None`으로 두면 면이 사라지고 평균선만 남음
 
@@ -73,6 +95,12 @@ g.set_xticklabels(rotation=90)
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/04_result_05.png)
+
+![실행 결과](/assets/image/lectures/data-visualization/04_result_06.png)
+
+*실행 결과*
+
 - 첫 번째: 연도별 선을 겹쳐 **해마다 커지는 계절성**을 비교
 - 두 번째: 연도마다 따로 그려 **각 해의 모양**을 비교
 
@@ -86,6 +114,10 @@ iris_mean.plot(marker='o')
 plt.ylabel('평균(cm)')
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/04_result_07.png)
+
+*실행 결과*
 
 ## 3. 누적 영역 그래프 (Stacked area)
 - 시계열 여러 개를 차곡차곡 쌓아 빈 공간을 채움
@@ -105,7 +137,15 @@ plt.ylabel('탑승객 수')
 plt.show()
 ```
 
+![실행 결과](/assets/image/lectures/data-visualization/04_result_08.png)
+
+*실행 결과*
+
 > seaborn에는 누적 영역 그래프 함수가 없어서 pandas(matplotlib)로 그림
+
+![누적 영역 그래프 예시](/assets/image/lectures/data-visualization/04_viz_S055_0.png)
+
+*누적 영역 그래프 예시*
 
 ## 4. 포인트 플롯 (Point plot)
 - 범주별 **평균과 신뢰구간**을 점으로 찍고 선으로 이어, 범주 간의 변화를 보여 줌
@@ -116,6 +156,10 @@ sns.pointplot(data=exercise, x='time', y='pulse', hue='kind',
               dodge=True, markers=['o', 's', '^'])
 plt.show()
 ```
+
+![실행 결과](/assets/image/lectures/data-visualization/04_result_09.png)
+
+*실행 결과*
 
 > seaborn `pointplot_anova` 예제를 단순화한 코드임
 
