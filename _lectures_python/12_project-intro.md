@@ -12,12 +12,10 @@ prev_post: /lectures/python/11_groupby-agg/
 next_post: /lectures/python/13_report-preprocessing/
 ---
 
-> 원본: S60–63
-
 ## 학습 목표
-- 실습 데이터(112 신고 빈발지)의 구조를 이해한다.
-- 분석 질문과 진행 순서를 파악한다.
-- Colab에서 그래프에 한글이 나오게 설정할 수 있다.
+- 실습 데이터(112 신고 빈발지)의 구조를 이해함
+- 분석 질문과 진행 순서를 파악함
+- Colab에서 그래프에 한글이 나오게 설정할 수 있음
 
 ## 1. 실습 데이터
 ### 신고 빈발지 데이터
@@ -27,6 +25,7 @@ next_post: /lectures/python/13_report-preprocessing/
   - `범죄 빈발지 데이터(행정동단위)_컬럼정의서.xls` — 열 정의
 
 ### 컬럼정의서
+
 | 순서 | 영문명 | 한글명 | 타입 |
 |---|---|---|---|
 | 1 | RPRT_YR | 신고년도 | VARCHAR |
@@ -42,7 +41,7 @@ next_post: /lectures/python/13_report-preprocessing/
 | 11 | THEFT_RPRT_CNT | 절도 신고수 | NUMBER |
 | 12 | VIOLNC_RPRT_CNT | 폭력 신고수 | NUMBER |
 
-> 한글 열 이름에 공백이 섞여 있습니다(`' 총 신고수'`, `'폭력 신고수'` 등). 열을 고를 때 이름을 **정확히** 써야 합니다.
+> 한글 열 이름에 공백이 섞여 있음(`' 총 신고수'`, `'폭력 신고수'` 등). 열을 고를 때 이름을 **정확히** 써야 함
 
 ## 2. 분석 시나리오
 ### 전처리 → [13 문서](/lectures/python/13_report-preprocessing/)
@@ -52,6 +51,7 @@ next_post: /lectures/python/13_report-preprocessing/
 4. 필요 없는 열 제거
 
 ### 분석
+
 | 질문 | 방법 | 문서 |
 |---|---|---|
 | 신고 종류에 따라 신고 수가 다른가? | 종류별 합계, 막대그래프 | [14](/lectures/python/14_seaborn-analysis/) |
@@ -61,6 +61,7 @@ next_post: /lectures/python/13_report-preprocessing/
 | 신고 수와 실제 범죄 발생이 관련 있나? | 범죄 데이터 병합, 상관관계, 산점도 | [16](/lectures/python/16_crime-merge-correlation/) |
 
 ## 3. 준비 셀
+
 ```python
 # 1) 드라이브 마운트 후 데이터 폴더로 이동 (00 문서 참고)
 from google.colab import drive
@@ -75,7 +76,7 @@ import seaborn as sns
 ```
 
 ## 4. 그래프에 한글 설정 (Colab)
-Colab 서버(리눅스)에는 한글 폰트가 없어서 그래프의 한글이 □□로 나옵니다. 원본의 Windows 맑은고딕 경로(`C:/Windows/Fonts/malgun.ttf`)는 Colab에서 쓸 수 없으므로, 나눔폰트를 설치해 등록합니다.
+Colab 서버(리눅스)에는 한글 폰트가 없어서 그래프의 한글이 □□로 나옴. Windows의 맑은고딕 경로(`C:/Windows/Fonts/malgun.ttf`)는 Colab에서 쓸 수 없으므로, 나눔폰트를 설치해 등록함
 
 ```python
 # 나눔폰트 설치
@@ -91,13 +92,15 @@ plt.rc('axes', unicode_minus=False)   # 음수 부호(-)가 깨지지 않게
 ```
 
 확인:
+
 ```python
 plt.title('한글 테스트')
 plt.plot([1, 2, 3], [-1, 0, 1])
 plt.show()
 ```
-> 런타임이 끊기면 설치한 폰트도 사라집니다. **새 세션마다 이 셀을 먼저 실행**하세요.
+
+> 런타임이 끊기면 설치한 폰트도 사라짐. **새 세션마다 이 셀을 먼저 실행**할 것
 
 ## 정리
-- 본 데이터는 헤더가 없으므로 열 이름은 컬럼정의서에서 가져옵니다.
+- 본 데이터는 헤더가 없으므로 열 이름은 컬럼정의서에서 가져옴
 - Colab 한글 폰트: `fonts-nanum` 설치 → `addfont` → `plt.rc('font', ...)`

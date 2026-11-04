@@ -12,14 +12,13 @@ prev_post: /lectures/python/07_series-dataframe/
 next_post: /lectures/python/09_indexing-slicing/
 ---
 
-> 원본: S40–45
-
 ## 학습 목표
-- DataFrame의 일부 행과 속성을 확인할 수 있다.
-- 데이터 타입을 확인하고 바꿀 수 있다.
-- 기술통계를 구하고 값 기준으로 정렬할 수 있다.
+- DataFrame의 일부 행과 속성을 확인할 수 있음
+- 데이터 타입을 확인하고 바꿀 수 있음
+- 기술통계를 구하고 값 기준으로 정렬할 수 있음
 
 ## 1. 데이터 미리 보기
+
 ```python
 df.head()      # 상위 5행
 df.head(2)     # 상위 2행
@@ -28,6 +27,7 @@ df.tail(3)     # 하위 3행
 ```
 
 ## 2. 속성 확인
+
 | 코드 | 결과 |
 |---|---|
 | `df.shape` | (행 수, 열 수) |
@@ -40,22 +40,25 @@ df.tail(3)     # 하위 3행
 | `df.info()` | 요약 정보 (타입, 결측 아닌 값 개수, 메모리) |
 | `df.count()` | 열별 결측 아닌 값 개수 |
 
-> `shape`, `columns`처럼 **괄호가 없는 것은 속성**, `info()`처럼 **괄호가 있는 것은 메서드**입니다.
+> `shape`, `columns`처럼 **괄호가 없는 것은 속성**, `info()`처럼 **괄호가 있는 것은 메서드**임
 
 ## 3. 데이터 타입
+
 | Pandas 타입 | Python 타입 |
 |---|---|
 | `object` | `str` (문자) |
 | `int64` | `int` (정수) |
 | `float64` | `float` (실수) |
 
-`astype()`으로 타입을 바꿉니다.
+`astype()`으로 타입을 바꿈
+
 ```python
 df['Population'] = df['Population'].astype('float')
 df = df.astype({'Population': 'int64'})
 ```
 
 ## 4. 기술통계
+
 ```python
 df.describe()                   # 숫자 열의 개수·평균·표준편차·최소·사분위·최대
 df.mean(numeric_only=True)      # 평균
@@ -66,13 +69,15 @@ df.max()                        # 최댓값
 df.var(numeric_only=True)       # 분산
 df.std(numeric_only=True)       # 표준편차
 ```
-> **pandas 2.x 변경사항**: 문자 열이 섞인 DataFrame에서 `mean()`, `median()`, `var()`, `std()`를 그냥 부르면 `TypeError`가 납니다. `numeric_only=True`를 붙이거나, 숫자 열만 골라서 계산하세요.
+
+> **pandas 2.x 변경사항**: 문자 열이 섞인 DataFrame에서 `mean()`, `median()`, `var()`, `std()`를 그냥 부르면 `TypeError`가 남. `numeric_only=True`를 붙이거나, 숫자 열만 골라서 계산
 > ```python
 > df[['salary', 'service']].mean()
 > ```
 
 ## 5. 정렬
-기본은 오름차순입니다.
+기본은 오름차순임
+
 ```python
 df_sorted = df.sort_values(by='salary')                       # salary 오름차순
 df_sorted.head()
@@ -89,13 +94,13 @@ df_sorted.head(10)
 ### [Exercise #6-1] 치안트렌드 데이터 탐색
 > 데이터: `치안트렌드.csv` (열: 범죄유형, 범죄예측2022최소값/평균/최대값, 범죄발생수2019/2020/2021)
 
-1. `치안트렌드.csv`를 DataFrame으로 읽으시오.
-2. 처음 5행, 마지막 3행을 출력하시오.
-3. 데이터 타입, 인덱스, 열 이름, 값을 확인하시오.
-4. 각 열의 통계 요약을 출력하시오.
-5. 열 하나를 골라 내림차순으로 정렬하시오.
+1. `치안트렌드.csv`를 DataFrame으로 읽을 것
+2. 처음 5행, 마지막 3행을 출력
+3. 데이터 타입, 인덱스, 열 이름, 값을 확인
+4. 각 열의 통계 요약을 출력
+5. 열 하나를 골라 내림차순으로 정렬
 
-<details>
+<details markdown="1">
 <summary>정답 예시</summary>
 
 ```python
@@ -115,6 +120,7 @@ df.describe()
 
 df.sort_values(by='범죄발생수2021', ascending=False)
 ```
+
 </details>
 
 ## 정리
