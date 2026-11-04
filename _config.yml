@@ -25,6 +25,9 @@ collections:
   lectures_ai:
     output: true
     permalink: /lectures/ai/:name/
+  lectures_python:
+    output: true
+    permalink: /lectures/python/:name/
 
 defaults:
   - scope:
@@ -42,8 +45,14 @@ defaults:
       type: lectures_ai
     values:
       layout: lecture
+  - scope:
+      path: ""
+      type: lectures_python
+    values:
+      layout: lecture
 
 exclude:
+  - temp/
   - Gemfile
   - Gemfile.lock
   - README.md
